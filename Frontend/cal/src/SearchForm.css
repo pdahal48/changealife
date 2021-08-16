@@ -1,0 +1,19 @@
+.SearchForm input:focus {
+    display: inline-block;
+    box-shadow: none;
+    border-color: #ced4da;
+    margin: 0%;
+  }
+
+  .search{
+    display: inline-block;
+    margin: 0%;
+  }
+
+  .searchBtn {
+    text-align: center;
+    display: inline-block;
+    width: 70px;
+    height: 47px;
+    margin-left: 5px;
+  }

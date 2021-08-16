@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "examples": [
+                1
+            ]
+        },
+        "name": {
+            "type": "string"
+        },
+        "address": {
+            "type": "string",
+            "examples": [
+                "1111 E. Main st"
+            ]
+        },
+        "city": {
+            "type": "string",
+            "examples": [
+                "Hamilton"
+            ]
+        },
+        "state": {
+            "type": "string",
+            "examples": [
+                "Ohio"
+            ]
+        },
+        "zip": {
+            "type": "integer",
+            "examples": [
+                45011
+            ]
+        },
+        "phone": {
+            "type": "integer",
+            "minLength": 10,
+            "maxLength": 10,
+            "examples": [
+                "5130001111"
+            ]
+        }
+    },
+    "additionalProperties": true,
+    "required": [
+        "name",
+        "address",
+        "city",
+        "state",
+        "zip",
+        "phone"
+    ]
+}

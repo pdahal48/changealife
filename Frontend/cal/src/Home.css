@@ -1,0 +1,50 @@
+/* .home-carousel{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-text{
+    color: black;
+    background-color: lightgray;
+}
+
+.carousel-head{
+    color:navajowhite;
+    padding: 5px;
+    font-weight: bolder;
+} */
+
+.home-carousel {
+    height: 100vh;
+    width: 100%;
+    overflow:hidden;
+    padding: 0px;
+}
+.home-carousel .carousel-inner {
+    height:100%;    
+}
+
+.home-carousel-inner img {
+    display:block;
+    object-fit: cover;
+}
+
+body{
+    margin:0 !important;
+    padding: 0px !important;
+}
+
+.home-img{
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-slogan {
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    z-index: 20;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}

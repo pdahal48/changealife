@@ -1,0 +1,82 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 30
+      }
+    ,
+      "fullName": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 50
+      },
+      "age": {
+        "type": "string",
+        "minValue": 0,
+        "maxValue": 150
+      },
+      "city": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 50
+      },
+      "state": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 50
+      },       
+      "phone": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string"
+      },
+      "shelter": {
+        "type": "string",
+        "minLength":3,
+        "maxLength": 50
+      },
+      "image": {
+        "type": "string"
+      },
+      "bio": {
+        "type": "string"
+      },
+      "highlight": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string",
+        "minLength": 5,
+        "maxLength": 20
+      },
+      "is_admin": {
+          "type": "boolean",
+          "default": false
+      },
+      "is_creator": {
+          "type": "boolean",
+          "default": false
+      }
+  },
+    "additionalProperties": false,
+    "required": [
+      "username",
+      "fullName",
+      "age",
+      "city",
+      "state",
+      "phone",
+      "email",
+      "shelter",
+      "image",
+      "bio",
+      "highlight",
+      "password"
+    ]
+  }
+  

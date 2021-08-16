@@ -1,0 +1,43 @@
+{
+  "name": "capstone-2",
+  "version": "1.0.0",
+  "description": "Final capstone for springboard",
+  "main": "app.js",
+  "dependencies": {
+    "@stripe/stripe-react-native": "^0.2.0",
+    "aws-sdk": "^2.962.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jest": "^27.0.6",
+    "jsonschema": "^1.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "pg": "^8.6.0",
+    "stripe": "^8.167.0",
+    "supertest": "^6.1.4",
+    "uuid": "^8.3.2",
+    "yarn": "^1.22.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdahal48/changealife.git"
+  },
+  "keywords": [
+    "capstone",
+    "change-a-life",
+    "springboard"
+  ],
+  "author": "Prem Dahal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pdahal48/changealife/issues"
+  },
+  "homepage": "https://github.com/pdahal48/changealife#readme"
+}
