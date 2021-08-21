@@ -6,9 +6,9 @@
       "username": {
         "type": "string",
         "minLength": 1,
-        "maxLength": 30
-      }
-    ,
+        "maxLength": 30,
+        "message": "Username of 3 characters or long required"
+      },
       "fullName": {
           "type": "string",
           "minLength": 3,

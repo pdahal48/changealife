@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Alert } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 
 const Login = ({ loginUser }) => {
+
+    const [flag, setFlag] = useState(false)
+    const [value, setValue] = useState(null)
 
     const history = useHistory()
     const [loginFormData, setloginFormData] = useState({
@@ -17,7 +20,8 @@ const Login = ({ loginUser }) => {
                 history.push('/')
                 window.location.reload()
             } else {
-                return console.log(user.errors)
+                setFlag(true)
+                setValue(user.errors[0])
             }
     }
 
@@ -30,7 +34,12 @@ const Login = ({ loginUser }) => {
     }
 
     return (
+        <div>
+
         <div className = "container col-md-6 offset-md-4 col-lg-3 offset-lg-4" >
+        {flag && 
+            <Alert variant="warning">{value}</Alert>
+            }
             <div className = "display-4">Login</div>
             <div className = "card my-2">
                 <div className = "card-body">
@@ -61,6 +70,8 @@ const Login = ({ loginUser }) => {
                 </div>
                 </div>
         </div>
+        </div>
+
     )
 }
 

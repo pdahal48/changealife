@@ -5,6 +5,8 @@ const wishListRoutes = require('./Routes/wishlist')
 const { NotFoundError } = require("./expressError");
 const { authenticateJWT } = require('./Middleware/auth')
 const paymentRoutes = require('./Routes/payment')
+const authRoutes = require("./routes/auth");
+
 const cors = require("cors");
 
 
@@ -17,6 +19,8 @@ app.use('/users', userRoutes)
 app.use('/shelters', shelterRoutes)
 app.use('/payment', paymentRoutes)
 app.use('/wishes', wishListRoutes)
+app.use("/auth", authRoutes);
+
 
 app.use(function (req, res, next) {
     return next(new NotFoundError());

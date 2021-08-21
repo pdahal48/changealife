@@ -20,6 +20,7 @@ function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
   const [currUserToken, setCurrUserToken] = useLocalStorage(TOKEN_STORAGE_ID)
 
+
   useEffect(function loadUserInfo() {
     console.debug("App useEffect loadUserInfo", "token=", currUserToken);
 
@@ -49,12 +50,16 @@ function App() {
 
   async function signup(signupData) {
     try {
-      let token = await API.signup(signupData);
-      setCurrUserToken(token);
-      return { success: true };
-    } catch (errors) {
-      console.error("signup failed", errors);
-      return { success: false, errors };
+      let res = await API.signup(signupData);
+      if (res.token) {
+        setCurrUserToken(res.token);
+        return {success: true}
+      } else {
+        return res.erros
+      }
+    } catch (e) {
+      console.error("signup failed", e);
+      return { success: false, e };
     }
   }
 
@@ -64,7 +69,6 @@ function App() {
       setCurrUserToken(token);
       return {success: true}
     } catch (errors) {
-      console.error("login failed", errors);
       return {success: false, errors}
     }
   }

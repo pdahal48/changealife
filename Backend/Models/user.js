@@ -2,8 +2,10 @@
 const { BCRYPT_WORK_FACTOR, SECRET_KEY } = require("../config.js");
 const db = require("../db");
 const bcrypt = require("bcrypt");
-const { sqlForPartialUpdate } = require("../helpers/sql");
+const newUserschema = require('../schemas/newUserschema.json')
+const jsonschema = require("jsonschema");
 
+const { sqlForPartialUpdate } = require("../helpers/sql");
 
 const {
   NotFoundError,
@@ -64,7 +66,7 @@ class User {
 
   static async register(
       { username, password, fullName, city, state, age, highlight, bio, phone, email, shelter, image, is_admin=false, is_creator=false }) {
-        
+
       const duplicateCheck = await db.query(
         `SELECT username
           FROM users

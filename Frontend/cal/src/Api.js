@@ -41,17 +41,14 @@ export class CalAPI {
 
 static async signup(userObj) {
   try {
-    let res = await this.request(`users/register`, userObj, "post");
-    console.log(res)
-    return res.token;
+    let res = await this.request(`auth/register`, userObj, "post");
+    return res;
   } catch(e) {
-      return new Error(e);
+      return {error: e};
   }
 }
 
-
   /** Logs in the user */
-
   static async login(data) {
   let res = await this.request(`users/login`, data, "post");
   return res.token;

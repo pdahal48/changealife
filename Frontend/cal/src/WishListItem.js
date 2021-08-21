@@ -16,9 +16,10 @@ const WishListItem = ({id, wish, handleRemove}) => {
         <ul>
             <li key={id} data-id={id}>
                 {wish}
-                {(username === currentUser.username) &&
+                {(currentUser !== null) && 
+                (username === currentUser.username) &&
                     <Button className="todoButton mt-0 btn-light p-0" onClick={ () => handleRemove(id)}>{element}</Button>
-                }
+            }
             </li>
         </ul>
     )

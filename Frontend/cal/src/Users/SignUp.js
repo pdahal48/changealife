@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col, Alert } from 'react-bootstrap'
 import { useHistory } from 'react-router'
 import {CalAPI as API} from '../Api'
 
@@ -7,6 +7,8 @@ import {CalAPI as API} from '../Api'
 const SignUp = ({ signup }) => {
 
     const [shelters, setShelters] = useState([])
+    const [flag, setFlag] = useState(false)
+    const [value, setValue] = useState([null])
     const history = useHistory();
 
     const [formdata, setFormData] = useState({
@@ -34,11 +36,12 @@ const SignUp = ({ signup }) => {
 
     async function handleSubmit(e) {
             e.preventDefault()
-            //dealing with the image
+
+            //selecting the image
             let imageField = document.querySelector('#user-image')
             const imageFile = imageField.files[0]
             
-            //get the secure url
+            //getting the secure url
             //Because I am making a request to a different server, this might cause some problems when uploaded to heroku
             const { url } = await fetch('http://localhost:3001/users/s3Url')
                             .then(res => res.json())
@@ -53,15 +56,15 @@ const SignUp = ({ signup }) => {
             })
             const imageUrl = url.split('?')[0]
             
-            try{
+            try {
             let user = await signup({...formdata, image:imageUrl})
-            console.log(user)
             if(user.success){
                 console.log(`Success`)
                 // history.push("/shelters");
+                console.log(user)
             } else {
-                console.log(`pringting errrors `, user.data.error.message)
-               return alert(user.errors)
+                setFlag(true)
+                setValue(user[0].split(".").pop())
             }
         } catch(e){
             // console.log(`pringting errrors `, e.data.error.message)
@@ -86,6 +89,9 @@ const SignUp = ({ signup }) => {
 
     return (
         <div className="container col-md-6 col-lg-5 offset-md-3 offset-lg-3">
+        { flag && 
+            <Alert variant="warning">{value}</Alert>
+        }
           <h3>Sign Up</h3>
           <div className="card">
             <div className="card-body">

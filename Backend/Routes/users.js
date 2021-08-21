@@ -7,7 +7,7 @@ const userAuth = require('../schemas/userAuth.json')
 const User = require('../Models/user')
 const { BadRequestError } = require("../expressError");
 const { createToken } = require('../Helpers/tokens')
-const { ensureCorrectUserOrCreator, ensureCreator } = require('../Middleware/auth')
+const { ensureCorrectUserOrCreator } = require('../Middleware/auth')
 
 //s3 imports
 const generateUploadURL = require('./s3.js')
@@ -23,17 +23,19 @@ router.get('/', async (req, res) => {
 //Anyone is able to register for service
 router.post('/register', async (req, res, next) => {
     try {
-        const validator = jsonschema.validate(req.body, userSchema)
+        const validator = jsonschema.validate(req.body, userSchema);
+        console.log(validator)
         if (!validator.valid) {
-            const errs = validator.errors.map(e => e.stack);
-            throw new BadRequestError(errs);
+          const errs = validator.errors.map(e => e.stack);
+          throw new BadRequestError(errs);
         }
-        const user = await User.register(req.body)
-        const token = createToken(user)
+    
+        const user = await User.register(req.body);
+        const token = createToken(user);
         return res.status(201).json({ user, token });
-    } catch(e) {
-        return next(e)
-    }
+      } catch (err) {
+        return next(err);
+      }
 })
 
 router.get('/s3Url', async (req, res) => {

@@ -105,8 +105,8 @@ const UserInfo = () => {
                 <div>
                 </div>
             }
-            {console.log(currentUser)}
-          {(currentUser !== null & currentUser.username === username) &&
+          {(currentUser !== null) &&
+          (currentUser.username === username) &&
             <Row>
                 <Col className="col-4 p-0">
                 <Form className="mt-2">
