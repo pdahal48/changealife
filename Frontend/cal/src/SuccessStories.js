@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap';
 
 const SuccessStories = () => {
-    return(
+    return (
         <div>
             <div className="justify-content-center">
             <h2 className="text-center display-4 mt-4">Success Stories</h2>
@@ -25,7 +25,6 @@ const SuccessStories = () => {
                 </p>
             </Col>
             </Row>
-
             <Row className="container-fluid mt-3 justify-content-center">
             <Col className="success-image col-5">
                 <img style={{height: "100%", width:"100%"}} src="https://api.time.com/wp-content/uploads/2014/05/160611383.jpg?quality=85&w=1200&h=628&crop=1" />

@@ -13,6 +13,7 @@ const People = () => {
         async function getPeople(name) {
             const people = await API.getPeople(name)
             setPeople(people)
+            console.log(`Printing people in People page `, people)
         }
         getPeople()
     }, [])

@@ -22,15 +22,14 @@ function NavBar({ logout }) {
         </Nav>
         <Nav>
           <NavLink className="nav-link text-dark" to="/people">
-                People
+            People
           </NavLink>
           <div className="a-dark">
           <NavDropdown title="Preferences" id="nav-dropdown">
-            <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+            <NavDropdown.Item href={`/users/${currentUser.username}`}>Profile</NavDropdown.Item>
             <NavDropdown.Item href="/" onClick={logout}>Logout</NavDropdown.Item>
           </NavDropdown>
           </div>
-          
         </Nav>
         </div>
     );
@@ -43,7 +42,7 @@ function NavBar({ logout }) {
         </Nav>
         <Nav className="justify-content-end">
         <NavLink className="nav-link text-dark" to="/people">
-                People
+            People
           </NavLink>
           <NavLink className="nav-link text-dark text-dark justify-content-end" to="/signup">
             Sign up

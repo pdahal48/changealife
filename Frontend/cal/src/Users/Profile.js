@@ -2,7 +2,6 @@ import { useState, useContext, useEffect} from 'react'
 import {CalAPI as API} from '../Api'
 import UserContext from './UserContext'
 import { Form, Button, Row, Col } from 'react-bootstrap'
-import UserInfo from '../People/UserInfo'
 
 const Profile = () => {
     const { currentUser, setCurrentUser } = useContext(UserContext)
@@ -79,7 +78,7 @@ const Profile = () => {
     }
 
     return (
-        <div className="container col-md-6 col-lg-5 offset-md-3 offset-lg-3">
+        <div className="col-md-6 col-lg-7 offset-md-3 offset-lg-3">
           <h3>Profile</h3>
           <div className="card">
             <div className="card-body">

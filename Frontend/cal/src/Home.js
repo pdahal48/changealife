@@ -1,13 +1,25 @@
-import React from "react";
-import { Card, Button, Row, Col, Carousel, Container } from 'react-bootstrap';
+import React, {useState, useEffect} from "react";
+import { Row, Col, Carousel, Spinner } from 'react-bootstrap';
 import SuccessStories from "./SuccessStories";
-
+import {CalAPI as API} from './Api';
+import LoadingSpinner from './LoadingSpinner'
 import '../src/Home.css'
 
 const Home = () => {
+  const [people, setPeople] = useState([])
+
+  useEffect(() => {
+      async function getPeople(name) {
+          const people = await API.getPeople(name)
+          setPeople(people)
+      }
+      getPeople()
+  }, [])
 
   return (
     <div>
+      {people.length ?
+      <div>
       <Row>
         <Col>
           <div className="home-img">
@@ -19,33 +31,41 @@ const Home = () => {
             </div>
             <Carousel className="container-fluid mt-2 home-carousel">
               <Carousel.Item className="min-vh-100">
+                <a href = {`/users/${people[people.length-1].username}`}>
                 <img
                   className="d-block w-100"
-                  src="https://ca-times.brightspotcdn.com/dims4/default/21e8c30/2147483647/strip/true/crop/2048x1152+0+0/resize/840x473!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F9c%2F6d%2Fff840e481091b821f472070a85ab%2Fla-1519931859-72n1qtn38y-snap-image"
+                  src={people[people.length-1].src}
                   alt="Jerry Shultz"
                 />
+                </a>
+                
                 <Carousel.Caption>
                   <h5 className="carousel-head">Jerry Shultz</h5>
                   <p className="carousel-text">Jerry needs help with applying for public benefits</p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
+              <a href = {`/users/${people[people.length-2].username}`}>
                 <img
                   className="d-block w-100"
-                  src="https://media2.s-nbcnews.com/i/newscms/2016_11/1465656/160320-marvin-bolton-homeless-nyc-1031a_f41d04ecc91aac27a5af090670eb7bd0.jpg"
+                  src={people[people.length-2].src}
                   alt="Second slide"
                 />
+                </a>
                 <Carousel.Caption>
                   <h5 className="carousel-head">Terry wol</h5>
                   <p className="carousel-text">Terry is in need of some cash at the moment</p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
+              <a href = {`/users/${people[people.length-3].username}`}>
                 <img
                   className="d-block w-100"
-                  src="https://voa-production.s3.amazonaws.com/dragonfly-uploads/2018/02/15/15/34/43/aa1db1c7-e7f5-47dc-b87b-93016a25ffa6/hero-640-homeless-people.jpg"
+                  src={people[people.length-3].src}
                   alt="Third slide"
                 />
+                </a>
+                
                 <Carousel.Caption>
                   <h5 className="carousel-head text-warning">Steven schultz</h5>
                   <p className="carousel-text">Steven needs some warm coat</p>
@@ -56,6 +76,9 @@ const Home = () => {
         </Col>
       </Row>
       <SuccessStories />
+      </div>
+    : LoadingSpinner
+      }
     </div>
   )
 }

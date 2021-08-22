@@ -6,6 +6,7 @@ import {loadStripe} from '@stripe/stripe-js';
 import Paypal from '../Paypal';
 import WishListItem from '../WishListItem';
 import UserContext from "../Users/UserContext";
+import Profile from '../Users/Profile'
 import '../CardInput.css'
 
 const UserInfo = () => {
@@ -16,7 +17,6 @@ const UserInfo = () => {
     const [image, setImage] = useState([])
     const [show, setShow] = useState(false);
     const { currentUser } = useContext(UserContext);
-
 
     const [formData, setFormData] = useState({
         amount: "",
@@ -35,10 +35,8 @@ const UserInfo = () => {
         const result = await API.add({user_username: username, wish: formData.wish})
         console.log(result)
         setWishList([...wishList, result.wish])
-
         setFormData({ wish: ""})
         console.log(wishList)
-        // window.location.reload();
     }
 
     async function handleRemove(id) {
@@ -46,7 +44,7 @@ const UserInfo = () => {
             const result = await API.remove(id)
             setWishList(wishList.filter((wish) => wish.id !== id))
         }
-            setWishList(wishList.filter((wish) => wish.id !== id))
+        setWishList(wishList.filter((wish) => wish.id !== id))
     }
 
     //functions for paypal modal
@@ -68,101 +66,82 @@ const UserInfo = () => {
     }, [username])
 
     return (
-        <div className="mb-3">
-        <Container>
-        <Row className="justify-content-md-center mt-3">
-        <Col md="auto" >
+        <div className="container-fluid mb-3">
+        <Row className="justify-content-center mt-3">
         {UserInfo.wish &&
-        <Card style={{ width: '35rem'}} >
-        <Card.Img variant="top" src={ image } />
-        <Card.Body>
-          <Card.Text>
+            <Col className="col-5">
+            <Card style={{ width: '100%'}} >
+            <Card.Img variant="top" src={ image } />
+            <Card.Body>
+            <Card.Text>
                 <b>Name: </b>{UserInfo.fullname} <br></br>
                 <b>Age: </b>{UserInfo.age} <br></br>
                 <b>City: </b> {UserInfo.city}<br></br>
                 <b>State: </b>{UserInfo.state}<br></br>
-          </Card.Text>
-          <Card.Text className = "text-left">
-              {UserInfo.bio}
-          </Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-        <ul >
-            Currently, I am in need of:
-            { wishList.length
-                ? (
+            </Card.Text>
+            <Card.Text className = "text-left">
+                {UserInfo.bio}
+            </Card.Text>
+            </Card.Body>
+            <ListGroup className="list-group-flush">
+            <ul >
+                Currently, I am in need of:
+                {wishList.length
+                    ? (
+                        <div>
+                            {wishList.map(item => (
+                                <WishListItem
+                                    key= {item.id}
+                                    id = {item.id}
+                                    wish = {item.wish}
+                                    handleRemove = {handleRemove}
+                                />
+                            ))}
+                        </div>
+                    ) :
                     <div>
-                        {wishList.map(item => (
-                            <WishListItem
-                                key= {item.id}
-                                id = {item.id}
-                                wish = {item.wish}
-                                handleRemove = {handleRemove}
-                            />
-                        ))}
                     </div>
-                ) :
-                <div>
-                </div>
-            }
-          {(currentUser !== null) &&
-          (currentUser.username === username) &&
-            <Row>
-                <Col className="col-4 p-0">
-                <Form className="mt-2">
-                <Form.Group>
-                    <Col >
-                        <Form.Control
-                            name="wish"
-                            type="string"
-                            placeholder="Add to your wish"
-                            value={formData.wish}
-                            onChange={handleChange}
-
-                        />
-                    </Col>
-                </Form.Group>
-                </Form>
-                </Col>
-                <Col>
-                    <Button className="add-btn btn btn-primary mt-2" onClick={handleAdd}>Add</Button>
-                </Col>
-            </Row>
-            }
+                }
+                {(currentUser !== null) &&
+                (currentUser.username === username) &&
+                    <Row>
+                        <Col className="col-4 p-0">
+                        <Form className="mt-2">
+                        <Form.Group>
+                            <Col >
+                                <Form.Control
+                                    name="wish"
+                                    type="string"
+                                    placeholder="Add to your wish"
+                                    value={formData.wish}
+                                    onChange={handleChange}
+                                />
+                            </Col>
+                        </Form.Group>
+                        </Form>
+                        </Col>
+                        <Col>
+                            <Button className="add-btn btn btn-primary mt-2" onClick={handleAdd}>Add</Button>
+                        </Col>
+                    </Row>
+                }
             </ul>
-
-        </ListGroup>
-        
-      </Card>
+            </ListGroup>
+            </Card>
+            </Col>
         }
-        </Col>
+
         <Col className="col-5">
-            <div>
+        {(currentUser !== null) &&
+          (currentUser.username === username) ?
+          <div className='col-9'>
+            <Profile /> 
+          </div>
+           :
+        <div className="col-5">
                 <h3>Ways to help:</h3>
                 <div>
                     <div>
-                    <div>
-                    {(UserInfo.phone_zelle || UserInfo.email_zelle) && 
-                    <div>
-                    Easiet way to donate is via <a href = "https://www.zellepay.com/how-it-works">Zelle</a>.<br></br>
-                    You may send payments to either the phone number of the email address provided below.<br></br>
-                    If your bank participates, please send payments to: <br></br>
-                    </div>
-                    }
-                    </div>
-                    <div className="mt-2 mb-4">
-                        {UserInfo.email_zelle &&
-                        <div>
-                            <b>Email: </b> {UserInfo.email} <br></br>
-                        </div>
-                        }
-                        {UserInfo.phone_zelle &&
-                        <div>
-                            <b>Phone: </b> {UserInfo.phone} <br></br>
-                        </div>
-                        }
-                    </div>
-                    </div>
                         <h5>If you want to buy an item from the wishlist. Ship them to the shelter located at:</h5>
                     <div className="mt-1 mb-4">
                         <b>Name: </b>{shelter.name} <br></br>
@@ -170,6 +149,7 @@ const UserInfo = () => {
                         <b>City: </b>{shelter.city} <br></br>
                         <b>State: </b>{shelter.state} <br></br>
                         <b>Zip: </b>{shelter.zip}
+                    </div>
                     </div>
                     <h5>Donate using Paypal</h5>
                     <div className="mb-2">
@@ -197,24 +177,16 @@ const UserInfo = () => {
                         </Col>
                     </Form.Group>
                     </Form>
-
                     <Modal show={show} onHide={handleClose} className = "mt-2 pt-5">                        
                         <Paypal amount = {formData.amount} email={UserInfo.email}/>
                     </Modal>
                 </div>
-            </div>
+        </div>
+    }
         </Col>
         </Row>
-        </Container>
         </div>
     )
 }
 
-
 export default UserInfo;
-
-
-// wishList.map(w =>
-//     <li className="mt-2 mb-2" key={w.id} id={w.id} data-id={w.id} href="#">
-//         {w.wish} <Button className="todoButton mt-0 btn-light p-0" onClick={ () => handleRemove(w.id)}>{element}</Button>
-//     </li>)
