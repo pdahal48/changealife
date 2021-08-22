@@ -66,10 +66,10 @@ const UserInfo = () => {
     }, [username])
 
     return (
-        <div className="container-fluid mb-3">
-        <Row className="justify-content-center mt-3">
+        <div>
+        <Row className="container-fluid mt-3 mb-3 justify-content-center">
         {UserInfo.wish &&
-            <Col className="col-5">
+            <Col className="col-4">
             <Card style={{ width: '100%'}} >
             <Card.Img variant="top" src={ image } />
             <Card.Body>
@@ -131,14 +131,13 @@ const UserInfo = () => {
             </Col>
         }
 
-        <Col className="col-5">
         {(currentUser !== null) &&
           (currentUser.username === username) ?
-          <div className='col-9'>
+          <Col className="col-5">
             <Profile /> 
-          </div>
+          </Col>
            :
-        <div className="col-5">
+           <Col className="col-4">
                 <h3>Ways to help:</h3>
                 <div>
                     <div>
@@ -181,9 +180,8 @@ const UserInfo = () => {
                         <Paypal amount = {formData.amount} email={UserInfo.email}/>
                     </Modal>
                 </div>
-        </div>
-    }
-        </Col>
+            </Col>
+        }
         </Row>
         </div>
     )
