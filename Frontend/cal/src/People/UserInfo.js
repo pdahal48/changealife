@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useContext} from 'react'
 import {useParams} from 'react-router-dom'
 import {CalAPI as API} from '../Api'
-import { Card, ListGroup, Container, Row, Col, Button, Modal, Form } from 'react-bootstrap';
+import { Card, ListGroup, Row, Col, Button, Modal, Form } from 'react-bootstrap';
 import {loadStripe} from '@stripe/stripe-js';
 import Paypal from '../Paypal';
 import WishListItem from '../WishListItem';

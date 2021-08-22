@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
-import { Form, Button, Alert } from 'react-bootstrap'
+import { Form, Button, Alert, Row, Col } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+
+const element = <FontAwesomeIcon icon={faUser} size="6x"/>
 
 const Login = ({ loginUser }) => {
 
@@ -35,14 +39,19 @@ const Login = ({ loginUser }) => {
 
     return (
         <div>
-
-        <div className = "container col-md-6 offset-md-4 col-lg-3 offset-lg-4" >
-        {flag && 
+        <Row className="justify-content-center">
+            <Col className="col-2 mt-5 mb-5">
+            {flag && 
             <Alert variant="warning">{value}</Alert>
             }
             <div className = "display-4">Login</div>
             <div className = "card my-2">
                 <div className = "card-body">
+                    <Row className="justify-content-center">
+                        <Col className="col-2 mb-4">
+                            {element}
+                        </Col>
+                    </Row>
                 <Form onSubmit = {handleSubmit}>
                 <Form.Group className="mb-2">
                     <Form.Control 
@@ -69,7 +78,8 @@ const Login = ({ loginUser }) => {
                 </Form>
                 </div>
                 </div>
-        </div>
+                </Col>
+        </Row>
         </div>
 
     )
