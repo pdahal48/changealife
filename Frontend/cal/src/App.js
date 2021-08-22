@@ -91,16 +91,16 @@ function App() {
           </UserContext.Provider>
         </BrowserRouter>
 
-      <Row className = "footer container-fluid justify-content-bottom text-center">
-        <Col className="col-12">
-        <footer className="page-footer font-small blue mb-5">
-          <div className="footer-copyright text-center py-3">© 2021 Copyright:
-            <a href="https://localhost:3000/"> Cal.com</a> <br></br>
-            <a href="/about"> About us</a>
-          </div>
-        </footer>
-        </Col>
-      </Row>
+        <Row className = "footer container-fluid justify-content-bottom text-center">
+          <Col className="col-12">
+          <footer className="page-footer font-small blue mb-5">
+            <div className="footer-copyright text-center py-3">© 2021 Copyright:
+              <a href="#"> Cal.com</a> <br></br>
+              <a href="/about"> About us</a>
+            </div>
+          </footer>
+          </Col>
+        </Row>
     </div> 
   );
 }

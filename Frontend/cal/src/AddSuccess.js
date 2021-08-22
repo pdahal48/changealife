@@ -1,0 +1,103 @@
+import React, {useState, useEffect} from 'react'
+import { Form, Button, Alert, Row, Col } from 'react-bootstrap'
+
+
+const AddSuccess = ({signup}) => {
+
+    const [flag, setFlag] = useState(false)
+    const [value, setValue] = useState([null])
+
+    const [formdata, setFormData] = useState({
+        image: "",
+        story: ""
+    });
+
+    async function handleSubmit(e) {
+        e.preventDefault()
+
+        //selecting the image
+        let imageField = document.querySelector('#user-image')
+        const imageFile = imageField.files[0]
+        
+        //getting the secure url
+        //Because I am making a request to a different server, this might cause some problems when uploaded to heroku
+        const { url } = await fetch('http://localhost:3001/users/s3Url')
+                        .then(res => res.json())
+
+        // post the image direclty to the s3 bucket
+        await fetch(url, {
+            method: "PUT",
+            headers: {      
+            "Content-Type": "multipart/form-data"
+            },
+            body: imageFile
+        })
+        const imageUrl = url.split('?')[0]
+        
+        try {
+        let user = await signup({...formdata, image:imageUrl})
+        if(user.success){
+            console.log(`Success`)
+            // history.push("/shelters");
+            console.log(user)
+        } else {
+            setFlag(true)
+            setValue(user[0].split(".").pop())
+        }
+    } catch(e){
+        // console.log(`pringting errrors `, e.data.error.message)
+    }
+}
+
+const handleChange = (e) => {
+    const {name, value} = e.target
+    setFormData(data => ({
+        ...data,
+        [name]: value
+    }))
+}
+
+    return (
+        <div className="mb-5 mt-3">
+            <Form className="addSuccess_container container">
+            <Row className="justify-content-center">
+                <Col className="add_success col-7">
+                    <div className="form-group mt-3 mb-5">
+                        <label>Image</label>
+                        <input
+                            id= "user-image"
+                            type="file"
+                            name="image"
+                            className="form-control mb-3"
+                            accept=".jpeg, .png, .jpg"
+                            // value={formdata.image}
+                            // onChange={handleChange}
+                        />
+                        <label>Share your story</label>
+                        <input
+                            style={{ height: '100px' }}
+                            type="text"
+                            name="bio"
+                            placeholder="Explain your success story in depth"
+                            className="form-control"
+                            // value={formdata.bio}
+                            // onChange={handleChange}
+                        />
+                        <Button
+                            variant="primary" 
+                            type="submit" 
+                            className = "position-absolute end-50"
+                            // onClick = {handleSubmit}
+                            >
+                            Submit
+                        </Button>
+                    </div>
+                </Col>
+            </Row>
+
+            </Form>
+        </div>
+    )
+}
+
+export default AddSuccess;

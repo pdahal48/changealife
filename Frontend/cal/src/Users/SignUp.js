@@ -78,14 +78,6 @@ const SignUp = ({ signup }) => {
             [name]: value
         }))
     }
-    
-    const handleChangeCheckbox = (e) => {
-        const {name, checked} = e.target
-        setFormData(data => ({
-            ...data,
-            [name]: checked
-        }))
-    }
 
     return (
         <div className="container col-md-6 col-lg-5 offset-md-3 offset-lg-3">

@@ -11,6 +11,7 @@ import AboutUs from "./AboutUs";
 import PaymentSuccessful from "./PaymentSuccess";
 import People from "./People/People";
 import Token from "./Tokens";
+import AddSuccess from "./AddSuccess";
 
 /** Site-wide routes.
  *
@@ -51,8 +52,8 @@ function Routes({signup, loginUser }) {
           <Route exact path="/payment/success">
             <PaymentSuccessful/>
           </Route>
-          <Route exact path="/tokens">
-            <Token/>
+          <Route exact path="/success">
+            <AddSuccess/>
           </Route>
           <Redirect to="/" />
         </Switch>

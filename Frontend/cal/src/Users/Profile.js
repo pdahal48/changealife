@@ -213,6 +213,7 @@ const Profile = () => {
                         </Col>
                     </Row>
                     <Row>
+                        
                         <Col>
                         <div className="form-group mb-5">
                             <label>Confirm password to make changes:</label>

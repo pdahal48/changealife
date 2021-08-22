@@ -50,3 +50,16 @@ a.custom-card-2:hover {
   border: 0px;
   margin-left: 5px;
 }
+
+.add_success{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.addSuccess_container{
+  padding: 2px 16px;
+  margin-bottom:20px
+}
+
+.add_success:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
