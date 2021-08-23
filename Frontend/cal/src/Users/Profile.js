@@ -1,11 +1,14 @@
 import { useState, useContext, useEffect} from 'react'
 import {CalAPI as API} from '../Api'
 import UserContext from './UserContext'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col, Alert } from 'react-bootstrap'
 
 const Profile = () => {
     const { currentUser, setCurrentUser } = useContext(UserContext)
     const [shelters, setShelters] = useState([])
+
+    const [flag, setFlag] = useState(false)
+    const [value, setValue] = useState(null)
     
     useEffect(()=> {
         async function getShelters() {
@@ -31,7 +34,8 @@ const Profile = () => {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log('submitted')
+        setFlag(true)
+        setValue('Profile Updated!')
 
         let profileData = {
             username: formdata.username,
@@ -55,6 +59,10 @@ const Profile = () => {
             updatedUser = await API.saveProfile(username, profileData);
           } catch (errors) {
             setFormData(errors);
+            console.log(errors[0].split(".").pop())
+
+            setFlag(true)
+            setValue(errors[0].split(".").pop())
             return;
         }
         setFormData(f => ({ ...f, password: "" }));
@@ -69,16 +77,11 @@ const Profile = () => {
         }))
     }
 
-    const handleChangeCheckbox = (e) => {
-        const {name, checked} = e.target
-        setFormData(data => ({
-            ...data,
-            [name]: checked
-        }))
-    }
-
     return (
         <div className="col-md-6 col-lg-7 offset-md-3 offset-lg-3">
+        {flag && 
+            <Alert variant="warning">{value}</Alert>
+        }
           <h3>Profile</h3>
           <div className="card">
             <div className="card-body">
