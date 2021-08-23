@@ -21,7 +21,7 @@ import AddSuccess from "./AddSuccess";
  * Visiting a non-existant route redirects to the homepage.
  */
 
-function Routes({signup, loginUser }) {
+function Routes({signup, loginUser, addStory }) {
   return (
       <div className="pt-0">
         <Switch>
@@ -53,7 +53,7 @@ function Routes({signup, loginUser }) {
             <PaymentSuccessful/>
           </Route>
           <Route exact path="/success">
-            <AddSuccess/>
+            <AddSuccess addStory = {addStory}/>
           </Route>
           <Redirect to="/" />
         </Switch>

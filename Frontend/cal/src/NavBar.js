@@ -26,8 +26,7 @@ function NavBar({ logout }) {
           </NavLink>
           <div className="a-dark">
           <NavDropdown title="Preferences" id="nav-dropdown">
-          <NavDropdown.Item href={`/users/${currentUser.username}`}>Report Success</NavDropdown.Item>
-
+          <NavDropdown.Item href={`/success`}>Report Success</NavDropdown.Item>
             <NavDropdown.Item href={`/users/${currentUser.username}`}>Profile</NavDropdown.Item>
             <NavDropdown.Item href="/" onClick={logout}>Logout</NavDropdown.Item>
           </NavDropdown>

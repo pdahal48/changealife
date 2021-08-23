@@ -72,6 +72,14 @@ function App() {
       return {success: false, errors}
     }
   }
+  async function addStory(data) {
+    try {
+      let res = await API.addStory(data);
+      return {success: true}
+    } catch (errors) {
+      return {success: false, errors}
+    }
+  }
 
   function logout() {
     setCurrentUser(null);
@@ -87,7 +95,7 @@ function App() {
             value = {{setCurrentUser, currentUser}}
           >
             <NavBar logout = {logout}/>
-                <Routes signup={signup} loginUser = {loginUser} />
+                <Routes signup={signup} loginUser = {loginUser} addStory = {addStory}/>
           </UserContext.Provider>
         </BrowserRouter>
 

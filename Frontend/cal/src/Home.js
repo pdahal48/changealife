@@ -7,6 +7,7 @@ import '../src/Home.css'
 
 const Home = () => {
   const [people, setPeople] = useState([])
+  const [stories, setStories] = useState([])
 
   useEffect(() => {
       async function getPeople(name) {
@@ -15,6 +16,15 @@ const Home = () => {
       }
       getPeople()
   }, [])
+
+  useEffect(() => {
+    async function getStories() {
+        const stories = await API.getStories()
+        setStories(stories)
+        console.log(stories)
+    }
+    getStories()
+}, [])
 
   return (
     <div>
@@ -75,7 +85,16 @@ const Home = () => {
           </div>
         </Col>
       </Row>
-      <SuccessStories />
+      <h2 className="text-center display-4 mt-4">Success Stories</h2>
+      {
+        stories.map(story => (
+          <SuccessStories
+            key={story.id}
+            src={story.src}
+            story={story.story}
+          />
+        ))
+      }
       </div>
     : LoadingSpinner
       }

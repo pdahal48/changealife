@@ -2,13 +2,13 @@ const express  = require('express')
 const userRoutes = require('./Routes/users')
 const shelterRoutes = require('./Routes/shelters')
 const wishListRoutes = require('./Routes/wishlist')
+const storyRoutes = require('./Routes/SuccessStories')
 const { NotFoundError } = require("./expressError");
 const { authenticateJWT } = require('./Middleware/auth')
 const paymentRoutes = require('./Routes/payment')
 const authRoutes = require("./routes/auth");
 
 const cors = require("cors");
-
 
 const app = express()
 app.use(express.json())
@@ -20,6 +20,7 @@ app.use('/shelters', shelterRoutes)
 app.use('/payment', paymentRoutes)
 app.use('/wishes', wishListRoutes)
 app.use("/auth", authRoutes);
+app.use("/stories", storyRoutes)
 
 
 app.use(function (req, res, next) {

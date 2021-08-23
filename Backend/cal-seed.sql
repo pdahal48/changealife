@@ -113,12 +113,38 @@ VALUES
   ('jerry50', 'more and more cash');
 
 INSERT INTO images 
-(user_username, src)
+  (user_username, src)
 VALUES
-('juanita07', 'https://www.sbs.com.au/topics/sites/sbs.com.au.topics/files/homeless-walking-by.jpg'),
-('lisa10', 'https://i.guim.co.uk/img/media/a94259b9cb8a4c953ee10918b1606cc5554d179a/0_43_3186_1912/master/3186.jpg?width=445&quality=45&auto=format&fit=max&dpr=2&s=fcbee5315562d570260c1cfe4dc4e99f'),
-('pdahal48', 'https://www.internationalworkplace.com/images/uploaded/homeless-person-with-willing-to-work-sign-1300pxs.jpg'),
-('jerry50', 'https://www.debatingeurope.eu/wp-content/uploads/2019/08/homeless.jpg');
+  ('juanita07', 'https://www.sbs.com.au/topics/sites/sbs.com.au.topics/files/homeless-walking-by.jpg'),
+  ('lisa10', 'https://i.guim.co.uk/img/media/a94259b9cb8a4c953ee10918b1606cc5554d179a/0_43_3186_1912/master/3186.jpg?width=445&quality=45&auto=format&fit=max&dpr=2&s=fcbee5315562d570260c1cfe4dc4e99f'),
+  ('pdahal48', 'https://www.internationalworkplace.com/images/uploaded/homeless-person-with-willing-to-work-sign-1300pxs.jpg'),
+  ('jerry50', 'https://www.debatingeurope.eu/wp-content/uploads/2019/08/homeless.jpg');
+
+INSERT INTO success_stories
+  (user_username, src, story)
+VALUES
+  ('pdahal48', 'https://www.internationalworkplace.com/images/uploaded/homeless-person-with-willing-to-work-sign-1300pxs.jpg', 
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+    magna aliqua. Eget egestas purus viverra accumsan in nisl nisi. Malesuada fames ac turpis egestas. Netus et 
+    malesuada fames ac turpis egestas. A cras semper auctor neque vitae. Lectus nulla at volutpat diam ut venenatis 
+    tellus. Vehicula ipsum a arcu cursus vitae congue. Consectetur libero id faucibus nisl. Tortor dignissim 
+    convallis aenean et tortor at risus viverra adipiscing. Quis enim lobortis scelerisque fermentum dui faucibus. 
+    Bibendum neque egestas congue quisque egestas diam in arcu cursus. Dictum varius duis at consectetur lorem donec 
+    massa sapien. Velit scelerisque in dictum non consectetur. Fermentum iaculis eu non diam phasellus. 
+    Feugiat nibh sed pulvinar proin gravida hendrerit lectus. Rhoncus est pellentesque elit ullamcorper. 
+    Est ante in nibh mauris cursus mattis molestie a iaculis. Leo in vitae turpis massa sed elementum tempus egestas. 
+    Nulla pharetra diam sit amet nisl suscipit adipiscing bibendum.'),
+  ('jerry50', 'https://i.guim.co.uk/img/media/a94259b9cb8a4c953ee10918b1606cc5554d179a/0_43_3186_1912/master/3186.jpg?width=445&quality=45&auto=format&fit=max&dpr=2&s=fcbee5315562d570260c1cfe4dc4e99f', 
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+    magna aliqua. Eget egestas purus viverra accumsan in nisl nisi. Malesuada fames ac turpis egestas. 
+    Netus et malesuada fames ac turpis egestas. A cras semper auctor neque vitae. Lectus nulla at volutpat 
+    diam ut venenatis tellus. Vehicula ipsum a arcu cursus vitae congue. Consectetur libero id faucibus nisl. 
+    Tortor dignissim convallis aenean et tortor at risus viverra adipiscing. Quis enim lobortis scelerisque fermentum 
+    dui faucibus. Bibendum neque egestas congue quisque egestas diam in arcu cursus. Dictum varius duis at consectetur 
+    lorem donec massa sapien. Velit scelerisque in dictum non consectetur. Fermentum iaculis eu non diam phasellus. 
+    Feugiat nibh sed pulvinar proin gravida hendrerit lectus. Rhoncus est pellentesque elit ullamcorper. Est ante in 
+    nibh mauris cursus mattis molestie a iaculis. Leo in vitae turpis massa sed elementum tempus egestas. 
+    Nulla pharetra diam sit amet nisl suscipit adipiscing bibendum.');
 
 INSERT INTO shelter_users 
   (user_username, shelter_name)

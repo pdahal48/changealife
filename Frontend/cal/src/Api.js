@@ -75,21 +75,30 @@ static async signup(userObj) {
 //     /** Save user profile page. */
 
   static async saveProfile(username, data) {
-    console.log(`Api got the request`)
     let res = await this.request(`users/${username}`, data, "patch");
     return res.user;
   }
 
   //WishList routes
   static async add(wishObj) {
-  console.log(`get route`)
   let res = await this.request(`wishes`,  wishObj, "post");
   return res;
 }
 
 static async remove(id) {
-  console.log(`get route`)
   let res = await this.request(`wishes/${id}`, id, "delete");
+  return res;
+}
+
+//Success stories Routes
+
+static async getStories(){
+  let res = await this.request(`stories`);
+  return res.stories;
+}
+
+static async addStory(data){
+  let res = await this.request(`stories`, data, "post");
   return res;
 }
 

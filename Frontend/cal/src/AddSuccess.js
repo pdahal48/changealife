@@ -1,18 +1,25 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useContext } from 'react'
 import { Form, Button, Alert, Row, Col } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
+import UserContext from './Users/UserContext';
 
 
-const AddSuccess = ({signup}) => {
+const AddSuccess = ({addStory}) => {
 
     const [flag, setFlag] = useState(false)
     const [value, setValue] = useState([null])
 
+    const history = useHistory()
+    const { currentUser } = useContext(UserContext);
+
     const [formdata, setFormData] = useState({
-        image: "",
-        story: ""
+        src: "",
+        story: "",
+        user_username: currentUser.username
     });
 
     async function handleSubmit(e) {
+
         e.preventDefault()
 
         //selecting the image
@@ -33,19 +40,18 @@ const AddSuccess = ({signup}) => {
             body: imageFile
         })
         const imageUrl = url.split('?')[0]
-        
+
         try {
-        let user = await signup({...formdata, image:imageUrl})
-        if(user.success){
-            console.log(`Success`)
-            // history.push("/shelters");
-            console.log(user)
+        let story = await addStory({...formdata, src:imageUrl})
+
+        if(story.success){
+            history.push("/");
         } else {
             setFlag(true)
-            setValue(user[0].split(".").pop())
+            setValue(story.errors[0])
         }
     } catch(e){
-        // console.log(`pringting errrors `, e.data.error.message)
+        alert(e)
     }
 }
 
@@ -58,7 +64,15 @@ const handleChange = (e) => {
 }
 
     return (
-        <div className="mb-5 mt-3">
+        <div className="container mb-5 mt-3">
+            <Row className="justify-content-center">
+            <Col className="col-7">
+            { flag && 
+            <Alert variant="warning">{value}</Alert>
+            }
+            </Col>
+            </Row>
+
             <Form className="addSuccess_container container">
             <Row className="justify-content-center">
                 <Col className="add_success col-7">
@@ -67,27 +81,27 @@ const handleChange = (e) => {
                         <input
                             id= "user-image"
                             type="file"
-                            name="image"
+                            name="src"
                             className="form-control mb-3"
                             accept=".jpeg, .png, .jpg"
-                            // value={formdata.image}
-                            // onChange={handleChange}
+                            value={formdata.image}
+                            onChange={handleChange}
                         />
                         <label>Share your story</label>
                         <input
                             style={{ height: '100px' }}
                             type="text"
-                            name="bio"
+                            name="story"
                             placeholder="Explain your success story in depth"
                             className="form-control"
-                            // value={formdata.bio}
-                            // onChange={handleChange}
+                            value={formdata.story}
+                            onChange={handleChange}
                         />
                         <Button
                             variant="primary" 
                             type="submit" 
                             className = "position-absolute end-50"
-                            // onClick = {handleSubmit}
+                            onClick = {handleSubmit}
                             >
                             Submit
                         </Button>

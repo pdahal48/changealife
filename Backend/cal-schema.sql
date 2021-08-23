@@ -5,6 +5,7 @@ DROP TABLE shelter CASCADE;
 DROP TABLE wishlist;
 DROP TABLE shelter_users CASCADE;
 DROP TABLE images CASCADE;
+DROP TABLE success_stories;
 
 CREATE TABLE users
 (
@@ -43,6 +44,14 @@ CREATE TABLE wishlist (
   user_username TEXT
     REFERENCES users ON DELETE CASCADE,
   wish TEXT NOT NULL
+);
+
+CREATE TABLE success_stories (
+  id SERIAL PRIMARY KEY,
+  user_username TEXT NOT NULL
+    REFERENCES users ON DELETE CASCADE,
+  src TEXT NOT NULL,
+  story TEXT NOT NULL
 );
 
 CREATE TABLE shelter_users

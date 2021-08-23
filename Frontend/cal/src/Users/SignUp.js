@@ -60,7 +60,7 @@ const SignUp = ({ signup }) => {
             let user = await signup({...formdata, image:imageUrl})
             if(user.success){
                 console.log(`Success`)
-                // history.push("/shelters");
+                history.push("/");
                 console.log(user)
             } else {
                 setFlag(true)
