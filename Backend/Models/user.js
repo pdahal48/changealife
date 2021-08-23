@@ -66,7 +66,7 @@ class User {
 
   static async register(
       { username, password, fullName, city, state, age, highlight, bio, phone, email, shelter, image, is_admin=false, is_creator=false }) {
-
+              
       const duplicateCheck = await db.query(
         `SELECT username
           FROM users
@@ -77,7 +77,7 @@ class User {
     if (duplicateCheck.rows[0]) {
       throw new BadRequestError(`Duplicate username: ${username}`);
     }
-
+    
     const hashedPassword = await bcrypt.hash(password, 12);
 
     const result = await db.query(
@@ -115,6 +115,7 @@ class User {
           is_creator
         ],
     );
+
 
     const imageResult = await db.query(
       `INSERT INTO images

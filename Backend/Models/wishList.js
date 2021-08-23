@@ -1,12 +1,9 @@
 "use strict";
 
 const db = require("../db");
-const {
-  NotFoundError,
-  BadRequestError,
-} = require("../expressError");
+const { NotFoundError } = require("../expressError");
 
-/** Related functions for shelter. */
+/** Related functions for wishList. */
 
 class wishList {
   static async add(
@@ -25,15 +22,12 @@ class wishList {
     return result.rows[0];
   }
 
-  /** Find all shelters.
-   *
-   * Returns [{ name, address, city, state, zip, phone }, ...]
-   **/
+  // Find all wishes.
 
   static async findAll() {
     const result = await db.query(
           `SELECT 
-                wish
+              id, user_username, wish
            FROM wishlist
            `,
     );

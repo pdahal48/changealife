@@ -62,10 +62,12 @@ function ensureCreator(req, res, next) {
 
 function ensureCorrectUserOrCreator(req, res, next) {
     try {
-      const user = req.body;
+      const user = req.user;
+      console.log(`user in auth`, user)
       if (!(user && (user.isCreator || user.username === req.params.username))) {
         throw new UnauthorizedError();
       }
+      console.log(user)
       return next();
     } catch (err) {
       return next(err);

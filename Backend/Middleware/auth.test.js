@@ -29,14 +29,11 @@ describe("Get /:username", function () {
         const response = await request(app).get('/users/newTestUser').send({_token: creatorToken})
         expect(response.statusCode).toBe(200)
     })
-    test('Does not return the user for the admin', async function () {
-        const response = await request(app).get('/users/newTestUser').send({_token: adminToken})
-        expect(response.statusCode).toBe(401)
-    })
 });
 
 describe("delete /:username", function () {
     test('user is able to delete himself', async function () {
+        console.log(u1Token)
         const response = await request(app).delete('/users/newTestUser').send({_token: u1Token})
         expect(response.statusCode).toBe(200)
     })

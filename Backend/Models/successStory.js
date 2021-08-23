@@ -62,7 +62,7 @@ class SuccessStories {
    * Throws NotFoundError if user not found.
    **/
 
-  static async get(id) {
+  static async get(username) {
     const storyRes = await db.query(
       `SELECT 
           id, 
@@ -70,26 +70,26 @@ class SuccessStories {
           src, 
           story
           FROM success_stories
-      WHERE id LIKE $1`,
-      [id],
+      WHERE user_username LIKE $1`,
+      [username],
     );
 
-    if (!storyRes.rows[0]) throw new NotFoundError(`No shelter found: ${name}`);
+    if (!storyRes.rows[0]) throw new NotFoundError(`No shelter found: ${username}`);
     return storyRes.rows;
   }
 
   /** Delete given shelter from database; returns undefined. */
 
-  static async remove(id) {
+  static async remove(username) {
     let result = await db.query(
           `DELETE
            FROM success_stories
-           WHERE id = $1
+           WHERE user_username = $1
            RETURNING id`,
-        [id],
+        [username],
     );
     const story = result.rows[0];
-    if (!story) throw new NotFoundError(`No story with the id of : ${id}`);
+    if (!story) throw new NotFoundError(`No story associated with : ${username}`);
   }
 }
 

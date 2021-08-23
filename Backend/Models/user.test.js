@@ -26,11 +26,14 @@ describe("authenticate", function () {
     const user = await User.authenticate("testUser1", "password1");
     expect(user).toEqual({
       username: "testUser1",
-      name: "User",
+      fullname: "Test User",
       city: "Hamilton",
       state: "Ohio",
-      age: 35,
-      image: "/images/1",
+      age: "35",
+      email: "test0@gmail.com",
+      shelter: "Shelter-1",
+      phone: "5130000000",
+      bio: "this is test bio",
       highlight: "test highlight",
       is_admin: false,
       is_creator: false
@@ -61,13 +64,18 @@ describe("authenticate", function () {
 
 describe("register", function () {
   const newUser = {
-    username: "newTestUser",
-    name: "TestUser",
+    username: "testUser",
+    fullName: "Test User",
     city: "Hamilton",
     state: "Ohio",
-    age: 35,
-    image: "/images/1",
-    highlight: "Test User",
+    age: "35",
+    email: "test0@gmail.com",
+    shelter: "Shelter-1",
+    phone: "5130001111",
+    bio: "this is test bio",
+    highlight: "test highlight",
+    image: "/images/3",
+    is_admin: false,
     is_creator: false
   };
 
@@ -76,8 +84,29 @@ describe("register", function () {
       ...newUser,
       password: "testUserPassword1"
     });
-    expect(user).toEqual({ ...newUser, is_admin: false });
-    const found = await db.query("SELECT * FROM users WHERE username = 'newTestUser'");
+
+    expect(user).toEqual({
+      username: "testUser",
+      fullname: "Test User",
+      city: "Hamilton",
+      state: "Ohio",
+      age: "35",
+      email: "test0@gmail.com",
+      shelter: {
+        id: expect.any(Number),
+        shelter_name: "Shelter-1",
+        user_username: "testUser"
+      },
+      phone: "5130001111",
+      bio: "this is test bio",
+      highlight: "test highlight",
+      image: "/images/3",
+      is_admin: false,
+      is_creator: false, 
+      password: expect.any(String)
+    });
+
+    const found = await db.query("SELECT * FROM users WHERE username = 'testUser'");
     expect(found.rows.length).toEqual(1);
     expect(found.rows[0].is_admin).toEqual(false);
     expect(found.rows[0].is_creator).toEqual(false);
@@ -90,8 +119,29 @@ describe("register", function () {
       password: "password",
       is_admin: true,
     });
-    expect(user).toEqual({ ...newUser, is_admin: true });
-    const found = await db.query("SELECT * FROM users WHERE username = 'newTestUser'");
+
+    expect(user).toEqual({
+      username: "testUser",
+      fullname: "Test User",
+      city: "Hamilton",
+      state: "Ohio",
+      age: "35",
+      email: "test0@gmail.com",
+      shelter: {
+        id: expect.any(Number),
+        shelter_name: "Shelter-1",
+        user_username: "testUser"
+      },
+      phone: "5130001111",
+      bio: "this is test bio",
+      highlight: "test highlight",
+      image: "/images/3",
+      is_admin: true,
+      is_creator: false, 
+      password: expect.any(String)
+    });
+
+    const found = await db.query("SELECT * FROM users WHERE username = 'testUser'");
     expect(found.rows.length).toEqual(1);
     expect(found.rows[0].is_admin).toEqual(true);
     expect(found.rows[0].password.startsWith("$2b$")).toEqual(true);
@@ -114,7 +164,7 @@ describe("register", function () {
   });
 });
 
-// /************************************** findAll */
+/************************************** findAll */
 
 describe("findAll", function () {
   test("works", async function () {
@@ -122,46 +172,72 @@ describe("findAll", function () {
     expect(users).toEqual([
       {
         username: "testUser1",
-        name: "User",
+        fullname: "Test User",
         city: "Hamilton",
         state: "Ohio",
-        age: 35,
-        image: "/images/1",
+        age: "35",
+        email: "test0@gmail.com",
+        shelter: "Shelter-1",
+        phone: "5130000000",
+        bio: "this is test bio",
         highlight: "test highlight",
+        src: "/images/2",
         is_admin: false,
-        is_creator: false
+        is_creator: false,
+        password: expect.any(String)
+
       },
       {
         username: "testUser2",
-        name: "User",
+        fullname: "Test User",
         city: "Hamilton",
         state: "Ohio",
-        age: 35,
-        image: "/images/2",
+        age: "35",
+        email: "test0@gmail.com",
+        shelter: "Shelter-2",
+        phone: "5130001111",
+        bio: "this is test bio",
         highlight: "test highlight",
+        src: "/images/2",
         is_admin: false,
-        is_creator: false
+        is_creator: false,
+        password: expect.any(String)
       },
     ]);
   });
 });
 
-// /************************************** get */
+/************************************** get */
 
 describe("get", function () {
   test("works", async function () {
     let user = await User.get("testUser1");
     expect(user).toEqual({
         username: "testUser1",
-        name: "User",
+        fullname: "Test User",
         city: "Hamilton",
         state: "Ohio",
-        age: 35,
-        image: "/images/1",
+        age: "35",
+        email: "test0@gmail.com",
+        shelter: {
+          address: '111 E. Main st',
+          name: "Shelter-1",
+          city: "Hamilton",
+          state: 'Ohio',
+          phone: "5130001111",
+          zip: 45011
+        },
+        phone: "5130000000",
+        bio: "this is test bio",
         highlight: "test highlight",
+        image: "/images/2",
+        password: expect.any(String),
         is_admin: false,
         is_creator: false,
-        wish: []
+        wish: [{
+          id: expect.any(Number),
+          wish: "test wish"
+        }]
     });
   });
 
@@ -176,7 +252,7 @@ describe("get", function () {
 });
 
 
-// /************************************** remove */
+/************************************** remove */
 
 describe("remove", function () {
   test("works", async function () {

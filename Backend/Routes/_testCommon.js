@@ -8,8 +8,8 @@ const { createToken } = require("../helpers/tokens");
 async function commonBeforeAll() {
   // noinspection SqlWithoutWhere
   await db.query("DELETE FROM users");
-  // noinspection SqlWithoutWhere
   await db.query("DELETE FROM shelter");
+  await db.query("DELETE FROM images");
 
   await Shelter.add(
     {
@@ -33,23 +33,32 @@ async function commonBeforeAll() {
   await User.register({
     username: "newTestUser",
     password: "password1",
-    name: "TestUser",
+    fullName: "Test User",
+    age: "10",
     city: "Hamilton",
     state: "Ohio",
-    age: 35,
-    image: "/images/1",
+    phone: "5131110000",
+    email: "test0@gmail.com",
+    shelter: "Shelter-1",
+    image: "/images/0",
+    bio: "test biography",
     highlight: "Test User",
     is_admin: false,
     is_creator: false
   });
+
   await User.register({
     username: "newTestUser1",
     password: "password1",
-    name: "TestUser",
+    fullName: "TestUser",
+    age: "10",
     city: "Hamilton",
     state: "Ohio",
-    age: 35,
+    phone: "5131111111",
+    email: "test0@gmail.com",
+    shelter: "Shelter-1",
     image: "/images/1",
+    bio: "test biography",
     highlight: "Test User",
     is_admin: false,
     is_creator: false
@@ -57,26 +66,35 @@ async function commonBeforeAll() {
   await User.register({
     username: "newTestUser2",
     password: "password1",
-    name: "TestUser",
+    fullName: "TestUser",
+    age: "10",
     city: "Hamilton",
     state: "Ohio",
-    age: 35,
-    image: "/images/1",
+    phone: "5131112222",
+    email: "test0@gmail.com",
+    shelter: "Shelter-2",
+    image: "/images/2",
+    bio: "test biography",
     highlight: "Test User",
-    is_admin: true,
+    is_admin: false,
     is_creator: false
   });
+  
   await User.register({
     username: "newTestUser3",
     password: "password1",
-    name: "TestUser",
+    fullName: "TestUser",
+    age: "10",
     city: "Hamilton",
     state: "Ohio",
-    age: 35,
-    image: "/images/1",
+    phone: "5131113333",
+    email: "test0@gmail.com",
+    shelter: "Shelter-1",
+    image: "/images/3",
+    bio: "test biography",
     highlight: "Test User",
     is_admin: false,
-    is_creator: true
+    is_creator: false
 });
 }
 
