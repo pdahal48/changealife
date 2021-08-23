@@ -47,8 +47,8 @@ const Login = ({ loginUser }) => {
             <div className = "display-4">Login</div>
             <div className = "card my-2">
                 <div className = "card-body">
-                    <Row className="justify-content-center">
-                        <Col className="col-2 mb-4">
+                    <Row className="container justify-content-center">
+                        <Col className="col-3 mb-4">
                             {element}
                         </Col>
                     </Row>
