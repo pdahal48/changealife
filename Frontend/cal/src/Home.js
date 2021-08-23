@@ -57,7 +57,7 @@ const Home = () => {
               <Carousel.Item>
               <a href = {`/users/${people[people.length-2].username}`}>
                 <img
-                  className="d-block w-100"
+                  className="img-fluid d-block w-100"
                   src={people[people.length-2].src}
                   alt="Second slide"
                 />

@@ -18,15 +18,15 @@ const Login = ({ loginUser }) => {
     });
 
     async function handleSubmit(e) {
-            e.preventDefault()
-            let user = await loginUser(loginFormData)
-            if(user.success){
-                history.push('/')
-                window.location.reload()
-            } else {
-                setFlag(true)
-                setValue(user.errors[0])
-            }
+        e.preventDefault()
+        let user = await loginUser(loginFormData)
+        if(user.success){
+            history.push('/')
+            window.location.reload()
+        } else {
+            setFlag(true)
+            setValue(user.errors[0])
+        }
     }
 
     const handleChange = (e) => {

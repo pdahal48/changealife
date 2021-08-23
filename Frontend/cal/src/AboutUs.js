@@ -9,8 +9,20 @@ const AboutUs = () => {
                 <Col className="col-8 text-center mt-3" style={{border:"2px solid grey"}}>
                     Hello! My name is Prem Dahal. I am an upcoming fullstack software engineer.
                     This site is intended to help donors reach people facing homeless and help them directly.
-                    If you have any questions or comments, feel free to reach me at prem.dahal01@gmail.com.
+                    If you have any questions or comments, feel free to
+                    <div>
+                        <a href="mailto:prem.dahal01@gmail.com">
+                            email me. 
+                        </a>
+                    </div>
                     I appreciate your support!
+                    <div className="text-center mt-2">
+                        If you run a shelter and would like to enroll, please
+                            <a href="mailto:prem.dahal01@gmail.com">
+                                {` contact me `}
+                            </a>
+                         with your shelter informaiton
+                    </div>
                     <div className="text-center mt-2">
                         If you are facing homeless and would like to add yourself to the site, please sign up! 
                     </div>

@@ -55,12 +55,9 @@ const Profile = () => {
         let updatedUser;
 
         try {
-            console.log(`trying to update`)
             updatedUser = await API.saveProfile(username, profileData);
           } catch (errors) {
             setFormData(errors);
-            console.log(errors[0].split(".").pop())
-
             setFlag(true)
             setValue(errors[0].split(".").pop())
             return;
