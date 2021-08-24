@@ -5,8 +5,6 @@ const stripe = require('stripe')(process.env.STRIPE_KEY)
 
 router.post('/create-account', async (req, res) => {
 
-  const data = req.data;
-
   //create an account
   try {
     let account = await stripe.accounts.create({

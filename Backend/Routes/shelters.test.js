@@ -18,7 +18,7 @@ beforeEach(commonBeforeEach);
 afterEach(commonAfterEach);
 afterAll(commonAfterAll);
 
-//Tests getting list of all users; should only work for creator
+//Tests getting list of all shelters
 describe('Get /shelters', function () {
     test('works for anon', async function () {
         const resp = await request(app).get('/shelters')
@@ -44,7 +44,7 @@ describe('Get /shelters', function () {
     })
 })
 
-//tests grabbing shelter information
+//tests grabbing shelter information with its name
 describe('/shelters/:name', function () {
     const shelter = {
         "shelter": [{
@@ -64,7 +64,7 @@ describe('/shelters/:name', function () {
     })
 })
 
-//tests removing user from the database
+//tests removing shelter from the database
 describe('delete: /shelters/:name', function () {
     test('allows only the creator to delete a shelter', async function () {
         const resp = await request(app)

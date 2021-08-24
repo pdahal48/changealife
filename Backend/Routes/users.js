@@ -12,7 +12,7 @@ const { ensureCorrectUserOrCreator } = require('../Middleware/auth')
 //s3 imports
 const generateUploadURL = require('./s3.js')
 
-//Only the creator is allowed to find all users 
+//Finds all user in the database
 router.get('/', async (req, res) => {
     const q = req.query;
     if (q.name === undefined) q.name = "";
@@ -37,12 +37,13 @@ router.post('/register', async (req, res, next) => {
       }
 })
 
+//generates a url for AWS s3 bucket for image upload
 router.get('/s3Url', async (req, res) => {
     const url = await generateUploadURL()
     res.send({ url })
 })
 
-//Anyone is able to login
+//allows user to login
 router.post('/login', async (req, res, next) => {
 
     const validator = jsonschema.validate(req.body, userAuth)
@@ -60,6 +61,7 @@ router.post('/login', async (req, res, next) => {
     }
 })
 
+//finds user information given their username
 router.get('/:username', async (req, res, next) => {
     try {
         const username = req.params.username
@@ -70,6 +72,7 @@ router.get('/:username', async (req, res, next) => {
     }
 })
 
+//updates user infomration given their username
 router.patch("/:username", ensureCorrectUserOrCreator, async function (req, res, next) {
     try {
       const validator = jsonschema.validate(req.body, userUpdateSchema);
@@ -86,7 +89,7 @@ router.patch("/:username", ensureCorrectUserOrCreator, async function (req, res,
     }
 });
 
-  
+//deletes a user given their username
 router.delete('/:username', ensureCorrectUserOrCreator, async (req, res, next) =>{
     try {
         const user = await User.remove(req.params.username)

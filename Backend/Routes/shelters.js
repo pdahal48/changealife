@@ -5,8 +5,8 @@ const shelterSchema = require('../schemas/newShelterSchema.json')
 const Shelter = require('../Models/shelter')
 const { BadRequestError } = require("../expressError");
 const { ensureCreator } = require('../Middleware/auth')
-const db = require('../db')
 
+//finds all shelter 
 router.get('/', async (req, res) => {
     try {
         const result = await Shelter.findAll()
@@ -16,6 +16,7 @@ router.get('/', async (req, res) => {
     }
 })
 
+//finds a specific shelter given its name
 router.get('/:name', async (req, res, next) => {
     try {
         const shelter = await Shelter.get(req.params.name)
@@ -25,6 +26,7 @@ router.get('/:name', async (req, res, next) => {
     }
 })
 
+//adds new shelter
 router.post('/', async (req, res,next) => {
     try {
         const validator = jsonschema.validate(req.body, shelterSchema)
@@ -39,6 +41,7 @@ router.post('/', async (req, res,next) => {
     }
 })
 
+//removes a shelter given its name
 router.delete('/:name', ensureCreator, async (req, res, next) => {
     try {
         const shelter = await Shelter.remove(req.params.name)

@@ -55,7 +55,7 @@ describe('POST /wishes', function () {
     })
 })
 
-//tests removing user from the database
+//tests removing a wish from the database
 describe('delete: /wishes/:name', function () {
     test('does not allow admin to delete users wish', async function () {
         const resp = await request(app)

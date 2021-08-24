@@ -2,8 +2,7 @@ const express = require('express')
 const router = new express.Router()
 const wishList = require('../Models/wishList')
 
-const db = require('../db')
-
+//finds all wishes in the database
 router.get('/', async (req, res) => {
     try {
         const result = await wishList.findAll()
@@ -13,6 +12,7 @@ router.get('/', async (req, res) => {
     }
 })
 
+//adds a new wish 
 router.post('/', async (req, res,next) => {
     try {
         const wish = await wishList.add(req.body)
@@ -22,6 +22,7 @@ router.post('/', async (req, res,next) => {
     }
 })
 
+//deletes a wish given its id
 router.delete('/:id', async (req, res, next) => {
     try {
         const { id } = req.params

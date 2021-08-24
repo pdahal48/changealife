@@ -1,9 +1,9 @@
 const express = require('express')
 const router = new express.Router()
 const SuccessStories = require('../Models/successStory')
-const { ensureCreator, ensureCorrectUserOrCreator } = require('../Middleware/auth')
-const db = require('../db')
+const { ensureCorrectUserOrCreator } = require('../Middleware/auth')
 
+//finds all success stories
 router.get('/', async (req, res, next) => {
     try {
         const result = await SuccessStories.findAll()
@@ -13,6 +13,7 @@ router.get('/', async (req, res, next) => {
     }
 })
 
+//finds a specific success story with its id
 router.get('/:id', async (req, res, next) => {
     try {
         const story = await SuccessStories.get(req.params.id)
@@ -22,6 +23,7 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
+//adds new success story
 router.post('/', async (req, res,next) => {
     try {    
         const stories = await SuccessStories.add(req.body)
@@ -31,6 +33,7 @@ router.post('/', async (req, res,next) => {
     }
 })
 
+//delete a story associated with an user given their username
 router.delete('/:username', ensureCorrectUserOrCreator, async (req, res, next) => {
     try {
         const story = await SuccessStories.remove(req.params.username)
