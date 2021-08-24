@@ -1,7 +1,7 @@
 const express  = require('express')
 const userRoutes = require('./Routes/users')
 const shelterRoutes = require('./Routes/shelters')
-const wishListRoutes = require('./Routes/wishlist')
+const wishesListRoutes = require('./Routes/wisheslist')
 const storyRoutes = require('./Routes/SuccessStories')
 const { NotFoundError } = require("./expressError");
 const { authenticateJWT } = require('./Middleware/auth')
@@ -18,7 +18,7 @@ app.use(cors());
 app.use('/users', userRoutes)
 app.use('/shelters', shelterRoutes)
 app.use('/payment', paymentRoutes)
-app.use('/wishes', wishListRoutes)
+app.use('/wishes', wishesListRoutes)
 app.use("/auth", authRoutes);
 app.use("/stories", storyRoutes)
 

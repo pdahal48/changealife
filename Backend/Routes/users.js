@@ -24,7 +24,6 @@ router.get('/', async (req, res) => {
 router.post('/register', async (req, res, next) => {
     try {
         const validator = jsonschema.validate(req.body, userSchema);
-        console.log(validator)
         if (!validator.valid) {
           const errs = validator.errors.map(e => e.stack);
           throw new BadRequestError(errs);

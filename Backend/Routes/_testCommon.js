@@ -4,12 +4,17 @@ const db = require("../db.js");
 const User = require("../models/user");
 const Shelter = require("../Models/shelter.js");
 const { createToken } = require("../helpers/tokens");
+const successStories = require("../Models/successStory.js");
+const wishList = require("../Models/wishList")
 
 async function commonBeforeAll() {
   // noinspection SqlWithoutWhere
   await db.query("DELETE FROM users");
   await db.query("DELETE FROM shelter");
   await db.query("DELETE FROM images");
+  await db.query("DELETE FROM success_stories");
+  await db.query("DELETE FROM wishList");
+
 
   await Shelter.add(
     {
@@ -63,6 +68,7 @@ async function commonBeforeAll() {
     is_admin: false,
     is_creator: false
   });
+
   await User.register({
     username: "newTestUser2",
     password: "password1",
@@ -95,7 +101,32 @@ async function commonBeforeAll() {
     highlight: "Test User",
     is_admin: false,
     is_creator: false
-});
+  });
+
+  //Adding success stories
+  await successStories.add({
+    user_username: "newTestUser",
+    src: "/images/1",
+    story: "test story"
+  })
+
+  await successStories.add({
+    user_username: "newTestUser2",
+    src: "/images/1",
+    story: "test story"
+  })
+
+  //Adding user's wishses
+  await wishList.add({
+    user_username: "newTestUser2",
+    wish: "test wish",
+  })
+
+  await wishList.add({
+    user_username: "newTestUser",
+    wish: "test wish",
+
+  })
 }
 
 async function commonBeforeEach() {

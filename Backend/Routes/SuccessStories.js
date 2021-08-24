@@ -1,10 +1,7 @@
 const express = require('express')
 const router = new express.Router()
-const jsonschema = require('jsonschema')
-const storySchema = require('../schemas/newShelterSchema.json')
 const SuccessStories = require('../Models/successStory')
-const { BadRequestError } = require("../expressError");
-const { ensureCreator } = require('../Middleware/auth')
+const { ensureCreator, ensureCorrectUserOrCreator } = require('../Middleware/auth')
 const db = require('../db')
 
 router.get('/', async (req, res, next) => {
@@ -26,12 +23,7 @@ router.get('/:id', async (req, res, next) => {
 })
 
 router.post('/', async (req, res,next) => {
-    try {
-        // const validator = jsonschema.validate(req.body, shelterSchema)
-        // if (!validator.valid) {
-        //     const errs = validator.errors.map(e => e.stack);
-        //     throw new BadRequestError(errs);
-        // }        
+    try {    
         const stories = await SuccessStories.add(req.body)
         return res.status(201).json({ stories })
     } catch(e) {
@@ -39,10 +31,10 @@ router.post('/', async (req, res,next) => {
     }
 })
 
-router.delete('/:name', ensureCreator, async (req, res, next) => {
+router.delete('/:username', ensureCorrectUserOrCreator, async (req, res, next) => {
     try {
-        const story = await SuccessStories.remove(req.params.id)
-        return res.json({deleted: req.params.name})
+        const story = await SuccessStories.remove(req.params.username)
+        return res.json({deleted: req.params.username})
     } catch (e) {
         return next (e)
     }

@@ -127,17 +127,6 @@ async function commonBeforeAll() {
     ['testUser2', 'Shelter-2']
 );
 
-//Adding items to users wishlist
-
-// await db.query(`
-// INSERT INTO wishList
-//   (user_username, wish)
-// VALUES
-//   ($1, $2)
-// RETURNING user_username, wish`,
-//   ['testUser2', 'test wish']
-// );
-
 await db.query(`
 INSERT INTO wishList
   (user_username, wish)
