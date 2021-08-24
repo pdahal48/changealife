@@ -6,7 +6,7 @@ import { Card, Button } from 'react-bootstrap';
 const PersonCard = ({ username, src, fullname, age, highlight }) => {
   return (
       <div className="container-fluid" >
-        <a className = "custom-card" href = {`/users/${username}`} >
+        <a className = "custom-card" href = {`/users/${username}`} key={username}>
         <Card className = "personCard" >
         <Card.Img variant="top" src={src} />
         <Card.Body>
@@ -16,7 +16,7 @@ const PersonCard = ({ username, src, fullname, age, highlight }) => {
           </Card.Text>
         </Card.Body>
           <Button> Donate</Button>
-      </Card>
+        </Card>
       </a>
       </div>
   )

@@ -2,11 +2,7 @@ import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 /** API Class.
- *
  * Static class tying together methods used to get/send to to the API.
- * There shouldn't be any frontend-specific stuff here, and there shouldn't
- * be any API-aware stuff elsewhere in the frontend.
- *
  */
 
 export class CalAPI {
@@ -16,8 +12,7 @@ export class CalAPI {
   static async request(endpoint, data = {}, method = "get") {
     console.debug("API Call:", endpoint, data, method);
 
-    //there are multiple ways to pass an authorization token, this is how you pass it in the header.
-    //this has been provided to show you another way to pass the token. you are only expected to read this code for this project.
+    //passing authorization token via request header
     const url = `${BASE_URL}/${endpoint}`;
     const headers = { Authorization: `Bearer ${CalAPI.token}` };
     const params = (method === "get")
@@ -33,74 +28,76 @@ export class CalAPI {
     }
   }
 
-  // Individual API routes
+  /* Users routes
+    *
+  sign up the user 
+  */
 
-//Users
-
-   /** sign up the user */
-
-static async signup(userObj) {
-  try {
-    let res = await this.request(`auth/register`, userObj, "post");
-    return res;
-  } catch(e) {
-      return {error: e};
+  static async signup(userObj) {
+    try {
+      let res = await this.request(`auth/register`, userObj, "post");
+      return res;
+    } catch(e) {
+        return {error: e};
+    }
   }
-}
 
   /** Logs in the user */
   static async login(data) {
   let res = await this.request(`users/login`, data, "post");
   return res.token;
-}
+  }
 
-    /** PUlls user info */
-
+  /** PUlls user info */
   static async getPeople(name) {
     let res = await this.request("users", { name });
     return res.users;
   }
 
+  //grabs individual user
   static async get(name) {
     console.log(`get route`)
     let res = await this.request(`users/${name}`);
     return res;
   }
 
+  //grabs shelter information regardig the user
   static async getShelters() {
     let res = await this.request(`shelters`);
     return res.shelters;
   }
 
-//     /** Save user profile page. */
-
+  //Save user profile page 
   static async saveProfile(username, data) {
     let res = await this.request(`users/${username}`, data, "patch");
     return res.user;
   }
 
   //WishList routes
+
+  //adds a wish
   static async add(wishObj) {
   let res = await this.request(`wishes`,  wishObj, "post");
   return res;
-}
+  }
 
-static async remove(id) {
-  let res = await this.request(`wishes/${id}`, id, "delete");
-  return res;
-}
+  //removes a wish
+  static async remove(id) {
+    let res = await this.request(`wishes/${id}`, id, "delete");
+    return res;
+  }
 
-//Success stories Routes
+  //Success stories Routes
 
-static async getStories(){
-  let res = await this.request(`stories`);
-  return res.stories;
-}
-
-static async addStory(data){
-  let res = await this.request(`stories`, data, "post");
-  return res;
-}
-
+  //gets all stories
+  static async getStories(){
+    let res = await this.request(`stories`);
+    return res.stories;
+  }
+  //adds a story
+  static async addStory(data){
+    let res = await this.request(`stories`, data, "post");
+    return res;
+  }
 }
 

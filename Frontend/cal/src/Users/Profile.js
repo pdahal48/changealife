@@ -6,7 +6,6 @@ import { Form, Button, Row, Col, Alert } from 'react-bootstrap'
 const Profile = () => {
     const { currentUser, setCurrentUser } = useContext(UserContext)
     const [shelters, setShelters] = useState([])
-
     const [flag, setFlag] = useState(false)
     const [value, setValue] = useState(null)
     

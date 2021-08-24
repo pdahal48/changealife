@@ -4,7 +4,7 @@ import PersonCard from './PersonCard';
 import SearchForm from '../SearchForm';
 
 //Controls State for the People list. 
-//Each item in the list is sent to PersonCard for render for /people page
+//Each item in the list is sent to PersonCard for render for /users page
 
 const People = () => {
     const [people, setPeople] = useState([])

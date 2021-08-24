@@ -7,9 +7,9 @@ import useLocalStorage from './Hooks'
 import UserContext from './Users/UserContext';
 import jwt from 'jsonwebtoken'
 import LoadingSpinner from "./LoadingSpinner";
-
-import './App.css';
 import { Row, Col } from 'react-bootstrap';
+import './App.css';
+
 export const TOKEN_STORAGE_ID = "Cal-token";
 
 require('dotenv').config()
@@ -28,10 +28,12 @@ function App() {
       if (currUserToken) {
         try {
           let { username } = jwt.decode(currUserToken);
+
           // put the currUserToken on the Api class so it can use it to call the API.
           API.token = currUserToken;
           let currentUser = await API.get(username);
           setCurrentUser(currentUser);
+          
         } catch (err) {
           console.error("App loadUserInfo: problem loading", err);
           setCurrentUser(null);
@@ -74,7 +76,7 @@ function App() {
   }
   async function addStory(data) {
     try {
-      let res = await API.addStory(data);
+      await API.addStory(data);
       return {success: true}
     } catch (errors) {
       return {success: false, errors}
@@ -103,7 +105,7 @@ function App() {
           <Col className="col-12">
           <footer className="page-footer font-small blue mb-5">
             <div className="footer-copyright text-center py-3">© 2021 Copyright:
-              <a href="#"> Cal.com</a> <br></br>
+              <a href="/"> Cal.com</a> <br></br>
               <a href="/about"> About us</a>
             </div>
           </footer>

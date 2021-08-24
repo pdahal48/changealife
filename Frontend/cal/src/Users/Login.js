@@ -7,7 +7,6 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 const element = <FontAwesomeIcon icon={faUser} size="6x"/>
 
 const Login = ({ loginUser }) => {
-
     const [flag, setFlag] = useState(false)
     const [value, setValue] = useState(null)
 

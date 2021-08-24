@@ -2,13 +2,12 @@ import React, {useEffect, useState, useContext} from 'react'
 import {useParams} from 'react-router-dom'
 import {CalAPI as API} from '../Api'
 import { Card, ListGroup, Row, Col, Button, Modal, Form } from 'react-bootstrap';
-import {loadStripe} from '@stripe/stripe-js';
 import Paypal from '../Paypal';
 import WishListItem from '../WishListItem';
 import UserContext from "../Users/UserContext";
 import Profile from '../Users/Profile'
-import '../CardInput.css'
 
+//renders user information page
 const UserInfo = () => {
     const { username } = useParams()
     const [UserInfo, setUserInfo] = useState([])
@@ -41,7 +40,7 @@ const UserInfo = () => {
 
     async function handleRemove(id) {
         if (id !== undefined) {
-            const result = await API.remove(id)
+            await API.remove(id)
             setWishList(wishList.filter((wish) => wish.id !== id))
         }
         setWishList(wishList.filter((wish) => wish.id !== id))
@@ -50,9 +49,6 @@ const UserInfo = () => {
     //functions for paypal modal
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-    //stripe publish key
-    const stripePromise = loadStripe(process.env.REACT_APP_KEY);
 
     useEffect(() => {
         async function getUserInfo() {

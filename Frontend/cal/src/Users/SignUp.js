@@ -43,8 +43,7 @@ const SignUp = ({ signup }) => {
             
             //getting the secure url
             //Because I am making a request to a different server, this might cause some problems when uploaded to heroku
-            const { url } = await fetch('http://localhost:3001/users/s3Url')
-                            .then(res => res.json())
+            const { url } = await fetch('http://localhost:3001/users/s3Url').then(res => res.json())
     
             // post the image direclty to the s3 bucket
             await fetch(url, {
@@ -67,7 +66,7 @@ const SignUp = ({ signup }) => {
                 setValue(user[0].split(".").pop())
             }
         } catch(e){
-            // console.log(`pringting errrors `, e.data.error.message)
+            return e
         }
     }
 
@@ -92,9 +91,8 @@ const SignUp = ({ signup }) => {
                       <Col>
                       <div className="form-group mb-2">
                             <label>Username</label>
-                            <input className="form-control-plaintext"
+                            <input className="form-control"
                                 name="username"
-                                className="form-control"
                                 value={formdata.username}
                                 onChange={handleChange}
                             />

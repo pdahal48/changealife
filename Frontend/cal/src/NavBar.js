@@ -21,7 +21,7 @@ function NavBar({ logout }) {
         <Nav>
         </Nav>
         <Nav>
-          <NavLink className="nav-link text-dark" to="/people">
+          <NavLink className="nav-link text-dark" to="/users">
             People
           </NavLink>
           <div className="a-dark">
@@ -42,7 +42,7 @@ function NavBar({ logout }) {
         <Nav>
         </Nav>
         <Nav className="justify-content-end">
-        <NavLink className="nav-link text-dark" to="/people">
+        <NavLink className="nav-link text-dark" to="/users">
             People
           </NavLink>
           <NavLink className="nav-link text-dark text-dark justify-content-end" to="/signup">
@@ -51,7 +51,6 @@ function NavBar({ logout }) {
           <NavLink className="nav-link text-dark text-dark justify-content-end" to="/login">
             Login
           </NavLink>
-
         </Nav>
         </div>
     );
@@ -60,7 +59,7 @@ function NavBar({ logout }) {
   return (
     <nav className="Navigation navbar navbar-expand-md pt-0 pb-0">
       <a className="navbar-brand" href="/">
-        <img src={logo}  width="50" height="37" className="logo d-inline-block align-top m-0" alt="brand photo" />
+        <img src={logo}  width="50" height="37" className="logo d-inline-block align-top m-0" alt="brand logo" />
       </a>
         {currentUser ? loggedInNav() : loggedOutNav()}
         {/* {loggedInNav()} */}

@@ -1,14 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import {useParams} from 'react-router-dom'
-var querystring = require('querystring');
 
 const Paypal = ({amount, email}) => {
 
     const history = useHistory()
     const paypal = useRef()
-    const { username } = useParams()
     const [orderId, setOrderId] = useState('')
     const [donorName, setDonorName] = useState('')
 
@@ -34,13 +31,12 @@ const Paypal = ({amount, email}) => {
                 setOrderId(order.id)
                 setDonorName(order.payer.name.given_name)
                 handleSubmit()
-
             },
             onError: (err) => {
                 console.log(err)
             }
         }).render(paypal.current)
-    }, []);
+    }, [amount]);
 
     //function to process the payment transfer to the receipient 
     async function handleSubmit() {
@@ -67,15 +63,7 @@ const Paypal = ({amount, email}) => {
           }}
         )
         payout.status === 201 
-        ?   history.push({
-                pathname: '/payment/success',
-                state: {detail: {
-                    payer_name: donorName,
-                    username: username,
-                    amount: amount,
-                    email: email
-                }}
-            })
+        ?   history.push('/people')
         : alert(payout)
     }
 

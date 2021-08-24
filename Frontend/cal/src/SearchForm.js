@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import "./SearchForm.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import "./SearchForm.css";
 
 const element = <FontAwesomeIcon icon={faSearch} size="2x"/>
 
 /** Search widget.
  *
- * Appears on CompanyList and JobList so that these can be filtered
+ * Appears on people list so that these can be filtered
  * down.
  *
  * This component doesn't *do* the searching, but it renders the search
  * form and calls the `searchFor` function prop that runs in a parent to do the
  * searching.
- *
- * { CompanyList, JobList } -> SearchForm
- */
+*/
 
 function SearchForm({ searchFor }) {
   console.debug("SearchForm", "searchFor=", typeof searchFor);

@@ -3,14 +3,13 @@ import { Form, Button, Alert, Row, Col } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 import UserContext from './Users/UserContext';
 
-
 const AddSuccess = ({addStory}) => {
+
+    const { currentUser } = useContext(UserContext);
+    const history = useHistory()
 
     const [flag, setFlag] = useState(false)
     const [value, setValue] = useState([null])
-
-    const history = useHistory()
-    const { currentUser } = useContext(UserContext);
 
     const [formdata, setFormData] = useState({
         src: "",
@@ -28,8 +27,7 @@ const AddSuccess = ({addStory}) => {
         
         //getting the secure url
         //Because I am making a request to a different server, this might cause some problems when uploaded to heroku
-        const { url } = await fetch('http://localhost:3001/users/s3Url')
-                        .then(res => res.json())
+        const { url } = await fetch('http://localhost:3001/users/s3Url').then(res => res.json())
 
         // post the image direclty to the s3 bucket
         await fetch(url, {

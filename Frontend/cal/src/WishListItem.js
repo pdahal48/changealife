@@ -7,7 +7,6 @@ import {useParams} from 'react-router-dom'
 
 const element = <FontAwesomeIcon icon={faTrash}/>
 
-
 const WishListItem = ({id, wish, handleRemove}) => {
     const { currentUser } = useContext(UserContext);
     const { username } = useParams()

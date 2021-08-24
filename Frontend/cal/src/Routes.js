@@ -3,14 +3,10 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Users/Login";
 import SignUp from "./Users/SignUp";
-import Shelter from "./Shelters/shelter";
-import PrivateRoutes from "./PrivateRoutes";
 import UserInfo from './People/UserInfo'
 import Profile from "./Users/Profile";
 import AboutUs from "./AboutUs";
-import PaymentSuccessful from "./PaymentSuccess";
 import People from "./People/People";
-import Token from "./Tokens";
 import AddSuccess from "./AddSuccess";
 
 /** Site-wide routes.
@@ -28,10 +24,7 @@ function Routes({signup, loginUser, addStory }) {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/shelters">
-            <Shelter />
-          </Route>
-          <Route exact path="/people">
+          <Route exact path="/users">
             <People />
           </Route>
           <Route exact path="/profile">
@@ -48,9 +41,6 @@ function Routes({signup, loginUser, addStory }) {
           </Route>
           <Route exact path="/about">
             <AboutUs/>
-          </Route>
-          <Route exact path="/payment/success">
-            <PaymentSuccessful/>
           </Route>
           <Route exact path="/success">
             <AddSuccess addStory = {addStory}/>

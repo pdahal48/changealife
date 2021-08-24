@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Row, Col, Carousel, Spinner } from 'react-bootstrap';
+import { Row, Col, Carousel } from 'react-bootstrap';
 import SuccessStories from "./SuccessStories";
 import {CalAPI as API} from './Api';
 import LoadingSpinner from './LoadingSpinner'
@@ -96,7 +96,7 @@ const Home = () => {
         ))
       }
       </div>
-    : LoadingSpinner
+    : <LoadingSpinner />
       }
     </div>
   )

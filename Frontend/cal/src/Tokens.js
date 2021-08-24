@@ -1,8 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-// require('dotenv').config()
 
-var querystring = require('querystring');
+let querystring = require('querystring');
 
 const Token = () => {
     const [token, setToken] = useState([]);
@@ -13,13 +12,12 @@ const Token = () => {
             querystring.stringify({'grant_type':'client_credentials'})
         ,
         {
-        auth:
-            {
+        auth: {
                 username: process.env.REACT_APP_USERNAME,
                 password: process.env.REACT_APP_PASSWORD
             }
-        }
-        )
+        })
+        
         setToken(result.data.access_token)
         console.log(`submitted`, result.data.access_token)
     }
