@@ -6,9 +6,11 @@ const {
   BadRequestError,
 } = require("../expressError");
 
-/** Related functions for shelter. */
+/** Related functions for success Story. */
 
 class SuccessStories {
+
+  //Adds a success story given an image's src, story, and an associated username
   static async add(
       { user_username, src, story }) {
     const duplicateCheck = await db.query(
@@ -55,12 +57,9 @@ class SuccessStories {
     return { stories };
   }
 
-  /** Given a shelter name, return data about the shelter.
-   *
-   * Returns { name, address, city, state, zip, phone }
-   *
+  /** Given an username, return the detail about a success story associated with the user.
    * Throws NotFoundError if user not found.
-   **/
+  **/
 
   static async get(username) {
     const storyRes = await db.query(
@@ -78,7 +77,7 @@ class SuccessStories {
     return storyRes.rows;
   }
 
-  /** Delete given shelter from database; returns undefined. */
+  /** Delete given story from database; returns undefined. */
 
   static async remove(username) {
     let result = await db.query(

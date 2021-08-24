@@ -9,6 +9,8 @@ const {
 /** Related functions for shelter. */
 
 class Shelter {
+
+  /* Adding a shelter given a name, address, city, state, zip and phone */
   static async add(
       { name, address, city, state, zip, phone }) {
     const duplicateCheck = await db.query(
@@ -40,10 +42,8 @@ class Shelter {
   }
 
   /** Find all shelters.
-   *
    * Returns [{ name, address, city, state, zip, phone }, ...]
-   **/
-
+  **/
   static async findAll() {
     const result = await db.query(
           `SELECT 
@@ -61,12 +61,9 @@ class Shelter {
   }
 
   /** Given a shelter name, return data about the shelter.
-   *
    * Returns { name, address, city, state, zip, phone }
-   *
    * Throws NotFoundError if user not found.
-   **/
-
+  **/
   static async get(name) {
     const shelterRes = await db.query(
       `SELECT 
@@ -86,7 +83,6 @@ class Shelter {
   }
 
   /** Delete given shelter from database; returns undefined. */
-
   static async remove(name) {
     let result = await db.query(
           `DELETE

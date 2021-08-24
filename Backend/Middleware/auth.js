@@ -1,7 +1,6 @@
 "use strict";
 
 /** Convenience middleware to handle common auth cases in routes. */
-
 const jwt = require("jsonwebtoken");
 const { SECRET_KEY } = require("../config");
 const { UnauthorizedError } = require("../expressError");
@@ -9,7 +8,7 @@ const { UnauthorizedError } = require("../expressError");
 /** Middleware: Authenticate user.
  *
  * If a token was provided, verify it, and, if valid, store the token payload
- * on res.locals (this will include the username and isAdmin field.)
+ * on res.user (this will include the username and isAdmin field.)
  *
  * It's not an error if no token was provided or if the token is not valid.
  */

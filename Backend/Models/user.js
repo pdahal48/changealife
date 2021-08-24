@@ -2,9 +2,6 @@
 const { BCRYPT_WORK_FACTOR, SECRET_KEY } = require("../config.js");
 const db = require("../db");
 const bcrypt = require("bcrypt");
-const newUserschema = require('../schemas/newUserschema.json')
-const jsonschema = require("jsonschema");
-
 const { sqlForPartialUpdate } = require("../helpers/sql");
 
 const {
@@ -17,14 +14,12 @@ const {
 
 class User {
   /** authenticate user with username, password.
-   *
-   * Returns { username, password, name, city, state, age, image, highlight, type }
-   *
    * Throws UnauthorizedError is user not found or wrong password.
-   **/
+  **/
 
   static async authenticate(username, password) {
-    // try to find the user first
+
+    // tries to find the user first
     const result = await db.query(
           `SELECT username, 
               password, 
@@ -57,12 +52,9 @@ class User {
     throw new UnauthorizedError("Invalid username/password");
   }
 
-  /** Register user with data.
-   *
-   * Returns { username, password, name, city, state, age, image, highlight, is_admin, is_creator }
-   *
+  /** Register user with applicable data.
    * Throws BadRequestError on duplicates.
-   **/
+  **/
 
   static async register(
       { username, password, fullName, city, state, age, highlight, bio, phone, email, shelter, image, is_admin=false, is_creator=false }) {
@@ -146,23 +138,7 @@ class User {
     return user;
   }
 
-  /** Find all users.
-   *
-   * Returns [{ username, 
-              password, 
-              name, 
-              city, 
-              state, 
-              age, 
-              phone,
-              email,
-              shelter,
-              image,
-              bio,
-              highlight,
-              is_admin, 
-              is_creator }, ...]
-   **/
+  //Find all users.
 
   static async findAll(searchFilters = {}) {
 
@@ -207,12 +183,9 @@ class User {
     return usersRes.rows;
   }
 
-  /** Given a username, return data about user and the jobs user have applied for.
-   *
-   * Returns { username, password, name, city, state, age, image, highlight, is_admin, is_creator }
-   *
+  /** Given a username, return data about the user
    * Throws NotFoundError if user not found.
-   **/
+  **/
 
   static async get(username) {
     const userRes = await db.query(

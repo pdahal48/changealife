@@ -1,7 +1,6 @@
 const express = require('express')
 const router = new express.Router()
 const wishList = require('../Models/wishList')
-const { ensureCorrectUserOrCreator, ensureCreator } = require('../Middleware/auth')
 
 const db = require('../db')
 
