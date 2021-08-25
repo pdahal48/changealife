@@ -99,5 +99,10 @@ export class CalAPI {
     let res = await this.request(`stories`, data, "post");
     return res;
   }
+
+  static async getUrl(){
+    let res = await this.request(`users/s3Url`);
+    return res;
+  }
 }
 
