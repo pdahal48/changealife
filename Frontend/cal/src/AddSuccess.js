@@ -27,7 +27,7 @@ const AddSuccess = ({addStory}) => {
         
         //getting the secure url
         //Because I am making a request to a different server, this might cause some problems when uploaded to heroku
-        const { url } = await fetch('http://localhost:3001/users/s3Url').then(res => res.json())
+        const { url } = await API.getUrl()
 
         // post the image direclty to the s3 bucket
         await fetch(url, {
