@@ -247,7 +247,13 @@ class User {
   }
 
   static async update(username, data) {
-    console.log(`in user update`)
+
+    await db.query(
+      `UPDATE shelter_users
+      SET shelter_name = '${data.shelter}'
+      WHERE user_username = '${data.username}'`
+    );     
+
     if (data.password) {
       data.password = await bcrypt.hash(data.password, BCRYPT_WORK_FACTOR);
     }
@@ -271,10 +277,27 @@ class User {
                       SET ${setCols} 
                       WHERE username = ${usernameVarIdx} 
                       RETURNING username
-                                `;
+                                `;                   
+
+    const shelter = await db.query(
+      `SELECT
+          s.name,
+          s.address,
+          s.city,
+          s.state,
+          s.phone,
+          s.zip
+        FROM shelter AS s
+          JOIN shelter_users
+        ON s.name=shelter_users.shelter_name
+        WHERE shelter_users.user_username=$1
+      `, [username]
+    )
 
     const result = await db.query(querySql, [...values, username]);
     const user = result.rows[0];
+    user.shelter = shelter.rows[0]
+
 
     if (!user) throw new NotFoundError(`No user: ${username}`);
 

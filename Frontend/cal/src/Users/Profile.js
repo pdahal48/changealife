@@ -25,7 +25,7 @@ const Profile = () => {
         state: currentUser.state,
         phone: currentUser.phone,
         email: currentUser.email,
-        shelter: currentUser.shelter,
+        shelter: currentUser.shelter.name,
         bio: currentUser.bio,
         highlight: currentUser.highlight,
         password: ""
@@ -49,7 +49,6 @@ const Profile = () => {
             highlight: formdata.highlight,
             password: formdata.password,
         };
-
         let username = formdata.username;
         let updatedUser;
 

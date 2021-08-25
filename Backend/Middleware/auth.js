@@ -15,8 +15,9 @@ const { UnauthorizedError } = require("../expressError");
 
 function authenticateJWT(req, res, next) {
     try {
-        let payload = jwt.verify(req.body._token, SECRET_KEY);
-        req.user = payload
+        const authHeader = req.headers && req.headers.authorization;
+        const token = authHeader.replace(/^[Bb]earer /, "").trim();
+        res.locals.user = jwt.verify(token, SECRET_KEY);
         return next();
     } catch (err) {
         return next();
@@ -30,7 +31,7 @@ function authenticateJWT(req, res, next) {
 
 function ensureLoggedIn(req, res, next) {
   try {
-    if (!req.user) throw new UnauthorizedError();
+    if (!res.user) throw new UnauthorizedError();
     return next();
   } catch (err) {
     return next(err);
@@ -39,7 +40,7 @@ function ensureLoggedIn(req, res, next) {
 
 function ensureAdmin(req, res, next) {
     try {
-      if (!req.user || !req.user.isAdmin) {
+      if (!res.locals.user || !res.locals.user.isAdmin) {
         throw new UnauthorizedError();
       }
       return next();
@@ -50,7 +51,7 @@ function ensureAdmin(req, res, next) {
 
 function ensureCreator(req, res, next) {
     try {
-        if (!req.user || !req.user.isCreator) {
+        if (!res.locals.user || !res.locals.user.isCreator) {
             throw new UnauthorizedError();
       }
       return next();
@@ -61,12 +62,11 @@ function ensureCreator(req, res, next) {
 
 function ensureCorrectUserOrCreator(req, res, next) {
     try {
-      const user = req.user;
-      console.log(user)
+      const user = res.locals.user;
       if (!(user && (user.isCreator || user.username === req.params.username))) {
         throw new UnauthorizedError();
       }
-      console.log(user)
+
       return next();
     } catch (err) {
       return next(err);
@@ -75,7 +75,7 @@ function ensureCorrectUserOrCreator(req, res, next) {
 
   function ensureAdminOrCreator(req, res, next) {
     try {
-      if (!req.user || !req.user.isCreator || !req.user.isAdmin) {
+      if (!res.locals.user || !req.locals.user.isCreator || !res.locals.user.isAdmin) {
         throw new UnauthorizedError();
       }
       return next();
