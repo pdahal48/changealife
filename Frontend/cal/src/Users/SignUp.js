@@ -3,7 +3,6 @@ import { Form, Button, Row, Col, Alert } from 'react-bootstrap'
 import { useHistory } from 'react-router'
 import {CalAPI as API} from '../Api'
 
-
 const SignUp = ({ signup }) => {
 
     const [shelters, setShelters] = useState([])

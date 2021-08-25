@@ -2,9 +2,10 @@ import React, { useState, useContext } from 'react'
 import { Form, Button, Alert, Row, Col } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 import UserContext from './Users/UserContext';
+import {CalAPI as API} from './Api'
+
 
 const AddSuccess = ({addStory}) => {
-
     const { currentUser } = useContext(UserContext);
     const history = useHistory()
 
