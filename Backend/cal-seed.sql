@@ -20,12 +20,16 @@ VALUES
       'Hamilton', 
       'Ohio',
       '35',
-      'This is jerry, that messes up everything you all.
-      I recently got injured at work and was fired after few months.',
-     'This is jerry, that messes up everything you all.
-      I recently got injured at work and was fired after few months.
-      Following that, my savings depleted quickly and was forced to vacate
-      the apartment that I had been living in for 15 years.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+     'Nunc vel risus commodo viverra maecenas accumsan. Imperdiet dui accumsan sit amet. Malesuada bibendum arcu vitae elementum 
+     curabitur vitae nunc sed. Senectus et netus et malesuada fames. Enim neque volutpat ac tincidunt vitae. Et malesuada fames ac 
+     turpis. Fringilla phasellus faucibus scelerisque eleifend donec. Iaculis nunc sed augue lacus. Est pellentesque elit ullamcorper 
+     dignissim cras tincidunt. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Nunc aliquet bibendum enim facilisis 
+     gravida neque convallis. Pellentesque pulvinar pellentesque habitant morbi. Consectetur lorem donec massa sapien faucibus. 
+     Suspendisse potenti nullam ac tortor vitae purus. Scelerisque in dictum non consectetur a erat nam. Augue ut lectus arcu bibendum 
+     at varius. A erat nam at lectus. Odio pellentesque diam volutpat commodo sed egestas. Imperdiet sed euismod nisi porta lorem mollis 
+     aliquam ut.',
       7200001215,
       'jerry@gmail.com',
       'Hamilton Christ Shelter',
@@ -39,12 +43,16 @@ VALUES
       'Hamilton', 
       'Ohio',
       '35',
-      'This is jerry, that messes up everything you all.
-        I recently got injured at work and was fired after few months.',
-     'This is jerry, that messes up everything you all.
-        I recently got injured at work and was fired after few months.
-        Following that, my savings depleted quickly and was forced to vacate
-        the apartment that I had been living in for 15 years.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+     'Nunc vel risus commodo viverra maecenas accumsan. Imperdiet dui accumsan sit amet. Malesuada bibendum arcu vitae elementum 
+     curabitur vitae nunc sed. Senectus et netus et malesuada fames. Enim neque volutpat ac tincidunt vitae. Et malesuada fames ac 
+     turpis. Fringilla phasellus faucibus scelerisque eleifend donec. Iaculis nunc sed augue lacus. Est pellentesque elit ullamcorper 
+     dignissim cras tincidunt. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Nunc aliquet bibendum enim facilisis 
+     gravida neque convallis. Pellentesque pulvinar pellentesque habitant morbi. Consectetur lorem donec massa sapien faucibus. 
+     Suspendisse potenti nullam ac tortor vitae purus. Scelerisque in dictum non consectetur a erat nam. Augue ut lectus arcu bibendum 
+     at varius. A erat nam at lectus. Odio pellentesque diam volutpat commodo sed egestas. Imperdiet sed euismod nisi porta lorem mollis 
+     aliquam ut.',
       7200001212,
       'jerry@gmail.com',
       'Butler County Shelter',
@@ -58,12 +66,16 @@ VALUES
       'Hamilton', 
       'Ohio',
       '35',
-      'This is jerry, that messes up everything you all.
-        I recently got injured at work and was fired after few months.',
-     'This is jerry, that messes up everything you all.
-        I recently got injured at work and was fired after few months.
-        Following that, my savings depleted quickly and was forced to vacate
-        the apartment that I had been living in for 15 years.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+     'Nunc vel risus commodo viverra maecenas accumsan. Imperdiet dui accumsan sit amet. Malesuada bibendum arcu vitae elementum 
+     curabitur vitae nunc sed. Senectus et netus et malesuada fames. Enim neque volutpat ac tincidunt vitae. Et malesuada fames ac 
+     turpis. Fringilla phasellus faucibus scelerisque eleifend donec. Iaculis nunc sed augue lacus. Est pellentesque elit ullamcorper 
+     dignissim cras tincidunt. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Nunc aliquet bibendum enim facilisis 
+     gravida neque convallis. Pellentesque pulvinar pellentesque habitant morbi. Consectetur lorem donec massa sapien faucibus. 
+     Suspendisse potenti nullam ac tortor vitae purus. Scelerisque in dictum non consectetur a erat nam. Augue ut lectus arcu bibendum 
+     at varius. A erat nam at lectus. Odio pellentesque diam volutpat commodo sed egestas. Imperdiet sed euismod nisi porta lorem mollis 
+     aliquam ut.',
       7200001212,
       'jerry@gmail.com',
       'Hamilton Christ Shelter',
@@ -77,12 +89,16 @@ VALUES
       'Hamilton', 
       'Ohio',
       '35',
-      'This is jerry, that messes up everything you all.
-        I recently got injured at work and was fired after few months.',
-     'This is jerry, that messes up everything you all.
-        I recently got injured at work and was fired after few months.
-        Following that, my savings depleted quickly and was forced to vacate
-        the apartment that I had been living in for 15 years.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+     'Nunc vel risus commodo viverra maecenas accumsan. Imperdiet dui accumsan sit amet. Malesuada bibendum arcu vitae elementum 
+     curabitur vitae nunc sed. Senectus et netus et malesuada fames. Enim neque volutpat ac tincidunt vitae. Et malesuada fames ac 
+     turpis. Fringilla phasellus faucibus scelerisque eleifend donec. Iaculis nunc sed augue lacus. Est pellentesque elit ullamcorper 
+     dignissim cras tincidunt. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Nunc aliquet bibendum enim facilisis 
+     gravida neque convallis. Pellentesque pulvinar pellentesque habitant morbi. Consectetur lorem donec massa sapien faucibus. 
+     Suspendisse potenti nullam ac tortor vitae purus. Scelerisque in dictum non consectetur a erat nam. Augue ut lectus arcu bibendum 
+     at varius. A erat nam at lectus. Odio pellentesque diam volutpat commodo sed egestas. Imperdiet sed euismod nisi porta lorem mollis 
+     aliquam ut.',
       7200001212,
       'jerry@gmail.com',
       'Hamilton Christ Shelter',
@@ -116,9 +132,9 @@ INSERT INTO images
   (user_username, src)
 VALUES
   ('juanita07', 'https://www.sbs.com.au/topics/sites/sbs.com.au.topics/files/homeless-walking-by.jpg'),
-  ('lisa10', 'https://i.guim.co.uk/img/media/a94259b9cb8a4c953ee10918b1606cc5554d179a/0_43_3186_1912/master/3186.jpg?width=445&quality=45&auto=format&fit=max&dpr=2&s=fcbee5315562d570260c1cfe4dc4e99f'),
-  ('pdahal48', 'https://www.internationalworkplace.com/images/uploaded/homeless-person-with-willing-to-work-sign-1300pxs.jpg'),
-  ('jerry50', 'https://www.debatingeurope.eu/wp-content/uploads/2019/08/homeless.jpg');
+  ('lisa10', 'https://www.ppic.org/wp-content/uploads/people-living-on-street-in-los-angeles-640x287.jpg'),
+  ('pdahal48', 'https://researchoutreach.org/wp-content/uploads/2019/05/shutterstock_1155406366.jpg'),
+  ('jerry50', 'https://www.gannett-cdn.com/presto/2018/08/14/PCIN/e2793e4b-935e-4395-9353-6a75d9e46a7f-071718Homeless1.jpg');
 
 INSERT INTO success_stories
   (user_username, src, story)
