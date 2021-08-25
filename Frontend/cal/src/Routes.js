@@ -8,6 +8,7 @@ import Profile from "./Users/Profile";
 import AboutUs from "./AboutUs";
 import People from "./People/People";
 import AddSuccess from "./AddSuccess";
+import PaymentSuccessful from "./paymentSuccess";
 
 /** Site-wide routes.
  *
@@ -44,6 +45,9 @@ function Routes({signup, loginUser, addStory }) {
           </Route>
           <Route exact path="/success">
             <AddSuccess addStory = {addStory}/>
+          </Route>
+          <Route exact path="/payment/success">
+            <PaymentSuccessful />
           </Route>
           <Redirect to="/" />
         </Switch>

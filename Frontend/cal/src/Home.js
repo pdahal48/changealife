@@ -21,7 +21,6 @@ const Home = () => {
     async function getStories() {
         const stories = await API.getStories()
         setStories(stories)
-        console.log(stories)
     }
     getStories()
 }, [])

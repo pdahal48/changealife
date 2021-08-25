@@ -1,13 +1,40 @@
 import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
 const Paypal = ({amount, email}) => {
-
+    const [orderId, setOrderId] = useState('')
+    let token;
     const history = useHistory()
     const paypal = useRef()
-    const [orderId, setOrderId] = useState('')
-    const [donorName, setDonorName] = useState('')
+    const { username } = useParams()
+
+    //Getting a paypal token for future requests
+    useEffect(() => {
+        //regex simply removes the quotations from the string
+        let CLIENT_ID = process.env.REACT_APP_PAYPAL_CLIENT_ID.replace(/['"]+/g, '')
+        let SECRET_KEY = process.env.REACT_APP_PAYPAL_SECRET_KEY.replace(/['"]+/g, '')
+        
+        fetch('https://api.sandbox.paypal.com/v1/oauth2/token', { 
+        method: 'POST',
+        headers: { 
+         'Accept': 'application/json', 
+         'Accept-Language': 'en_US',
+         'Content-Type': 'application/x-www-form-urlencoded',
+         'Authorization': 'Basic ' + btoa(`${CLIENT_ID}:${SECRET_KEY}`)
+        },
+    body: 'grant_type=client_credentials'
+
+    }).then(response => response.json())
+    .then(async (data) => {
+        token = data.access_token;
+    }).catch(function (error) {
+        let edata = error.message;
+        console.log('Error:', edata)
+    })
+
+    }, [token])
+
 
     //processing the donation
     useEffect(() => {
@@ -29,7 +56,6 @@ const Paypal = ({amount, email}) => {
             onApprove: async (data, actions) => {
                 const order = await (actions.order.capture());
                 setOrderId(order.id)
-                setDonorName(order.payer.name.given_name)
                 handleSubmit()
             },
             onError: (err) => {
@@ -59,11 +85,18 @@ const Paypal = ({amount, email}) => {
                     }]
               },{
                 headers: {
-                  Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`
-          }}
-        )
+                  Authorization: `Bearer ${token}`
+                }}
+            )
         payout.status === 201 
-        ?   history.push('/people')
+        ?   history.push({
+                pathname: '/payment/success',
+                state: {detail: {
+                    username: username,
+                    amount: amount,
+                }}
+            })
+
         : alert(payout)
     }
 
