@@ -51,8 +51,7 @@ describe("authenticate", function () {
 
   test("unauth if wrong password", async function () {
     try {
-      const test = await User.authenticate("testUser1", "wrongPassword");
-      console.log(test)
+      await User.authenticate("testUser1", "wrongPassword");
       fail();
     } catch (err) {
       expect(err instanceof UnauthorizedError).toBeTruthy();

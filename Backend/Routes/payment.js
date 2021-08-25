@@ -18,7 +18,6 @@ router.post('/create-account', async (req, res) => {
     type: 'account_onboarding',
   });
   } catch(e) {
-    console.log(e)
     res.json({error: e})
     return;
   }

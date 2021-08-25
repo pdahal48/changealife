@@ -32,10 +32,8 @@ const UserInfo = () => {
 
     async function handleAdd() {
         const result = await API.add({user_username: username, wish: formData.wish})
-        console.log(result)
         setWishList([...wishList, result.wish])
         setFormData({ wish: ""})
-        console.log(wishList)
     }
 
     async function handleRemove(id) {

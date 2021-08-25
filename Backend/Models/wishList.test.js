@@ -45,7 +45,6 @@ describe("add", function () {
         let wish = await wishList.add(newWish2);
         fail();
       } catch(err) {
-        console.log(err.code)
         expect(err.code).toEqual("23502");
       }
   });

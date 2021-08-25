@@ -47,11 +47,8 @@ describe("add", function () {
   test("Does not work with incomplete data", async function () {
       try {
         let shelter = await Shelter.add(newShelter2);
-        console.log(shelter)
-        // expect(shelter).toEqual(newShelter);
         fail();
       } catch(err) {
-        console.log(err.code)
         expect(err.code).toEqual("23502");
       }
   });

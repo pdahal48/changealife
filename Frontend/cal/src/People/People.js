@@ -13,7 +13,6 @@ const People = () => {
         async function getPeople(name) {
             const people = await API.getPeople(name)
             setPeople(people)
-            console.log(`Printing people in People page `, people)
         }
         getPeople()
     }, [])
@@ -30,7 +29,6 @@ const People = () => {
           {people.length
               ? (
                   <div>
-                      {console.log(people)}
                     {people.map(person => (
                         <PersonCard
                             key={person.id}

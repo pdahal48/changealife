@@ -6,7 +6,6 @@ let querystring = require('querystring');
 const Token = () => {
     const [token, setToken] = useState([]);
 
-    console.log(process.env)
     async function handleSubmit() {
         const result = await axios.post('https://api-m.sandbox.paypal.com/v1/oauth2/token',
             querystring.stringify({'grant_type':'client_credentials'})
@@ -19,7 +18,6 @@ const Token = () => {
         })
         
         setToken(result.data.access_token)
-        console.log(`submitted`, result.data.access_token)
     }
     return (
         <div>

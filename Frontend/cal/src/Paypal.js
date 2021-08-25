@@ -29,8 +29,7 @@ const Paypal = ({amount, email}) => {
     .then(async (data) => {
         token = data.access_token;
     }).catch(function (error) {
-        let edata = error.message;
-        console.log('Error:', edata)
+        return (error);        
     })
 
     }, [token])
@@ -59,7 +58,7 @@ const Paypal = ({amount, email}) => {
                 handleSubmit()
             },
             onError: (err) => {
-                console.log(err)
+                return err;
             }
         }).render(paypal.current)
     }, [amount]);

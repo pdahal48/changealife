@@ -56,7 +56,6 @@ export class CalAPI {
 
   //grabs individual user
   static async get(name) {
-    console.log(`get route`)
     let res = await this.request(`users/${name}`);
     return res;
   }

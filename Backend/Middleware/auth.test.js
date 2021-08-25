@@ -33,7 +33,6 @@ describe("Get /:username", function () {
 
 describe("delete /:username", function () {
     test('user is able to delete himself', async function () {
-        console.log(u1Token)
         const response = await request(app).delete('/users/newTestUser').send({_token: u1Token})
         expect(response.statusCode).toBe(200)
     })
