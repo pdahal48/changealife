@@ -2,7 +2,7 @@
   "name": "capstone-2",
   "version": "1.0.0",
   "description": "Final capstone for springboard",
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
     "@stripe/stripe-react-native": "^0.2.0",
     "aws-sdk": "^2.962.0",
