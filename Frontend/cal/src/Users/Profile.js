@@ -33,6 +33,7 @@ const Profile = () => {
 
     async function handleSubmit(e) {
         e.preventDefault()
+
         setFlag(true)
         setValue('Profile Updated!')
 

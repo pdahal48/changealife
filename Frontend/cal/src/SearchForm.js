@@ -35,7 +35,7 @@ function SearchForm({ searchFor }) {
 
   return (
     
-      <div className="SearchForm mb-4 text-center">
+      <div className="SearchForm mb-3 text-center">
         <form className="form-outline search" onSubmit={handleSubmit}>
           <input
               className="form-control form-control-lg flex-grow-1"
@@ -45,7 +45,7 @@ function SearchForm({ searchFor }) {
               onChange={handleChange}
           />
         </form>
-        <button type="submit" className="searchBtn btn btn-primary  mb-3" onClick={handleSubmit}>
+        <button type="submit" className="searchBtn btn btn-primary  mb-2" onClick={handleSubmit}>
           {element}
         </button>
         <div>

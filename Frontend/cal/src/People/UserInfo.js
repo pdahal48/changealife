@@ -34,6 +34,7 @@ const UserInfo = () => {
         const result = await API.add({user_username: username, wish: formData.wish})
         setWishList([...wishList, result.wish])
         setFormData({ wish: ""})
+        window.location.reload()
     }
 
     async function handleRemove(id) {
@@ -41,7 +42,8 @@ const UserInfo = () => {
             await API.remove(id)
             setWishList(wishList.filter((wish) => wish.id !== id))
         }
-        setWishList(wishList.filter((wish) => wish.id !== id))
+            setWishList(wishList.filter((wish) => wish.id !== id))
+
     }
 
     //functions for paypal modal
