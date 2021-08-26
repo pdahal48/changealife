@@ -19,7 +19,7 @@ Users will land on a home page containing a carasoul that contains three most re
 #### User Table
 
 |username|password|fullName|city|state|age|highlight|bio|phone|email|shelter|is_admin|is_creator
-|------|-----|-----------|----------|--|--|--|--|--|--|--|--|--|--|
+|--|--|--|--|--|--|--|--|--|--|--|--|--|
 |Jdoe0| hashedPassword1!|John Doe|New York|New York|100|a sample highlight|a sample bio|3150001111|sample@gmail.com|New York Shelter|false|false
 
 
