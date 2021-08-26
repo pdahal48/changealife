@@ -2,7 +2,7 @@
 const { BCRYPT_WORK_FACTOR, SECRET_KEY } = require("../config.js");
 const db = require("../db");
 const bcrypt = require("bcrypt");
-const { sqlForPartialUpdate } = require("../helpers/sql");
+const { sqlForPartialUpdate } = require("../Helpers/sql");
 
 const {
   NotFoundError,

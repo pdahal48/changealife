@@ -1,9 +1,9 @@
 "use strict";
 
 const db = require("../db.js");
-const User = require("../models/user");
+const User = require("../Models/user");
 const Shelter = require("../Models/shelter.js");
-const { createToken } = require("../helpers/tokens");
+const { createToken } = require("../Helpers/tokens");
 const successStories = require("../Models/successStory.js");
 const wishList = require("../Models/wishList")
 

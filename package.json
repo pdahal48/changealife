@@ -1,0 +1,19 @@
+{
+  "name": "capstone-2",
+  "version": "1.0.0",
+  "description": "Change-a-life help create a personal connection between people facing homelessness and people who are willing to help change lives. Site provides mini biography about the homeless person and what they are in need of at the moment. Willing donors are able to buy the exact item from their wishlist and send it to their current shelter or donate money directly to the person. Paypal API is be used for payment processing. The main difference between this site and other crowd-sourcing web applications is that this one is dedicated to homeless people and noone else. At the moment, Shelter must be enrolled into the program first by contacting the developer with their information. This is to prevent fraudulent activities from people posing to be homeless.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdahal48/changealife.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pdahal48/changealife/issues"
+  },
+  "homepage": "https://github.com/pdahal48/changealife#readme"
+}
