@@ -63,7 +63,7 @@ This app is created using Node.js for the backend and react.js for the frontend.
     * server starts on localhost 3000
 * To run tests, do npm test `<filename>`
 
-## At this point, this is only a model and still in development. Access the app at - https://change-lives.surge.sh/
+## At this point, this is only a model and still in development. Access the app at - change-a-life.surge.sh
 
 Tools Used:
 * Frontend: React, Bootstrap

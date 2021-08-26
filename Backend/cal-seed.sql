@@ -132,7 +132,7 @@ INSERT INTO images
   (user_username, src)
 VALUES
   ('juanita07', 'https://www.sbs.com.au/topics/sites/sbs.com.au.topics/files/homeless-walking-by.jpg'),
-  ('lisa10', 'https://www.ppic.org/wp-content/uploads/people-living-on-street-in-los-angeles-640x287.jpg'),
+  ('lisa10', 'https://content.atlantamission.org/content/uploads/2016/08/21015531/20160603_ATI-Mission_0207.jpg'),
   ('pdahal48', 'https://researchoutreach.org/wp-content/uploads/2019/05/shutterstock_1155406366.jpg'),
   ('jerry50', 'https://www.gannett-cdn.com/presto/2018/08/14/PCIN/e2793e4b-935e-4395-9353-6a75d9e46a7f-071718Homeless1.jpg');
 
