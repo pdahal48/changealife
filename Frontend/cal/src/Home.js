@@ -38,32 +38,30 @@ const Home = () => {
                 BUILD YOUR COMMUNITY!
               </h3>
             </div>
-            <Carousel className="container-fluid mt-2 home-carousel">
-              <Carousel.Item className="min-vh-100">
+            <Carousel className="container-fluid home-carousel">
+              <Carousel.Item>
                 <a href = {`/users/${people[people.length-1].username}`}>
                 <img
                   className="d-block w-100"
                   src={people[people.length-1].src}
-                  alt="Jerry Shultz"
+                  alt={people[people.length-1].fullName}
                 />
                 </a>
                 
                 <Carousel.Caption>
-                  <h5 className="carousel-head">Jerry Shultz</h5>
-                  <p className="carousel-text">Jerry needs help with applying for public benefits</p>
+                  <h5 className="carousel-head">{people[people.length-1].fullName}</h5>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
               <a href = {`/users/${people[people.length-2].username}`}>
                 <img
-                  className="img-fluid d-block w-100"
+                  className="d-block w-100"
                   src={people[people.length-2].src}
                   alt="Second slide"
                 />
                 </a>
                 <Carousel.Caption>
-                  <h5 className="carousel-head">Terry wol</h5>
-                  <p className="carousel-text">Terry is in need of some cash at the moment</p>
+                  <h5 className="carousel-head">{people[people.length-2].name}</h5>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
@@ -76,15 +74,14 @@ const Home = () => {
                 </a>
                 
                 <Carousel.Caption>
-                  <h5 className="carousel-head text-warning">Steven schultz</h5>
-                  <p className="carousel-text">Steven needs some warm coat</p>
+                <h5 className="carousel-head">{people[people.length-3].name}</h5>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
           </div>
         </Col>
       </Row>
-      <h2 className="text-center display-4 mt-4">Success Stories</h2>
+      <h2 className="text-center display-3 mt-4">Success Stories</h2>
       {
         stories.map(story => (
           <SuccessStories
