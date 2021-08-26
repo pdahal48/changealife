@@ -65,7 +65,7 @@ const UserInfo = () => {
         <div>
         <Row className="container-fluid mt-3 mb-3 justify-content-center">
         {UserInfo.wish &&
-            <Col className="col-sm-12 col-md-4">
+            <Col className="col-12 col-md-5 col-xl-4 mb-5">
             <Card style={{ width: '100%'}} >
             <Card.Img variant="top" src={ image } />
             <Card.Body>
@@ -129,8 +129,8 @@ const UserInfo = () => {
 
         {(currentUser !== null) &&
           (currentUser.username === username) ?
-          <Col className="col-sm-12 col-5">
-            <Profile /> 
+          <Col className="col-12 col-md-5 col-xl-5 mb-5">
+          <Profile /> 
           </Col>
            :
            <Col className="col-sm-12 col-md-4">

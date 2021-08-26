@@ -39,7 +39,7 @@ const Login = ({ loginUser }) => {
     return (
         <div>
         <Row className="justify-content-center">
-            <Col className="col-2 mt-5 mb-5">
+        <Col className="col-12 col-sm-5 col-md-3 col-lg-2 col-xl-2">
             {flag && 
             <Alert variant="warning">{value}</Alert>
             }
