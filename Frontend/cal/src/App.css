@@ -64,3 +64,16 @@ a.custom-card-2:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+.login-icon{
+  display: inline-block;
+}
+
+.footer{
+  padding: 2px 16px;
+  background-color: #E8E8E8;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.footer:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}

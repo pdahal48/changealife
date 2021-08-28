@@ -3,6 +3,11 @@ import { NavLink } from "react-router-dom";
 import UserContext from "./Users/UserContext";
 import { Nav, NavDropdown } from 'react-bootstrap';
 import logo from './CAL-3 copy.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHandsHelping } from '@fortawesome/free-solid-svg-icons'
+
+const element = <FontAwesomeIcon icon={faHandsHelping} size="2x"/>
+
 
 /** Navigation bar for site. Shows up on every page.
  *
@@ -17,7 +22,7 @@ function NavBar({ logout }) {
 
   function loggedInNav() {
     return (
-      <div className="container-fluid">
+      <div className="container-fluid m-2">
         <Nav>
         </Nav>
         <Nav>
@@ -38,11 +43,11 @@ function NavBar({ logout }) {
 
   function loggedOutNav() {
     return (
-      <div className="container-fluid">
+      <div className="navbar container-fluid m-2">
         <Nav>
         </Nav>
         <Nav className="justify-content-end">
-        <NavLink className="nav-link text-dark" to="/users">
+        <NavLink className="nav-link text-dark text-bold" to="/users">
             People
           </NavLink>
           <NavLink className="nav-link text-dark text-dark justify-content-end" to="/signup">
@@ -58,9 +63,11 @@ function NavBar({ logout }) {
 
   return (
     <nav className="Navigation navbar navbar-expand-md pt-0 pb-0">
-      <a className="navbar-brand" href="/">
-        <img src={logo}  width="50" height="37" className="logo d-inline-block align-top m-0" alt="brand logo" />
+      <a className="mx-3 navbar-brand text-secondary" href="/">
+        {element}
+        {/* <img src={logo}  width="50" height="37" className="logo d-inline-block align-top m-0" alt="brand logo" /> */}
       </a>
+      <span class="navbar-brand mb-0 h1">CAL</span>
         {currentUser ? loggedInNav() : loggedOutNav()}
         {/* {loggedInNav()} */}
     </nav>

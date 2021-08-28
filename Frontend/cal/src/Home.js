@@ -33,19 +33,22 @@ const Home = () => {
         <Col>
           <div className="home-img">
             <div className="carousel-slogan">
-              <h3 className="display-3">
+            <div className="text-center display-3">
                 DONATE TODAY. <br></br>
                 BUILD YOUR COMMUNITY!
-              </h3>
+              </div>
             </div>
             <Carousel className="container-fluid home-carousel">
               <Carousel.Item>
                 <a href = {`/users/${people[people.length-1].username}`}>
+                <div className="container">
                 <img
                   className="d-block w-100"
                   src={people[people.length-1].src}
                   alt={people[people.length-1].fullName}
                 />
+                </div>
+                
                 </a>
                 
                 <Carousel.Caption>
@@ -72,7 +75,6 @@ const Home = () => {
                   alt="Third slide"
                 />
                 </a>
-                
                 <Carousel.Caption>
                 <h5 className="carousel-head">{people[people.length-3].name}</h5>
                 </Carousel.Caption>

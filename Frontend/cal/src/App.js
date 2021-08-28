@@ -100,10 +100,9 @@ function App() {
                 <Routes signup={signup} loginUser = {loginUser} addStory = {addStory}/>
           </UserContext.Provider>
         </BrowserRouter>
-
-        <Row className = "footer container-fluid justify-content-bottom text-center">
-          <Col className="col-12">
-          <footer className="page-footer font-small blue mb-5">
+        <Row className = "container-fluid footer text-center">
+          <Col className="position-relative bottom-0">
+          <footer className="font-small blue mb-5">
             <div className="footer-copyright text-center py-3">© 2021 Copyright:
               <a href="/"> Cal.com</a> <br></br>
               <a href="/about"> About us</a>

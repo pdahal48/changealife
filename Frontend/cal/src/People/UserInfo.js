@@ -65,7 +65,7 @@ const UserInfo = () => {
         <div>
         <Row className="container-fluid mt-3 mb-3 justify-content-center">
         {UserInfo.wish &&
-            <Col className="col-12 col-md-5 col-xl-4 mb-5">
+            <Col className="col-12 col-md-5 col-xl-6 mb-5">
             <Card style={{ width: '100%'}} >
             <Card.Img variant="top" src={ image } />
             <Card.Body>

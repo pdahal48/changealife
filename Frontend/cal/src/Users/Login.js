@@ -38,19 +38,20 @@ const Login = ({ loginUser }) => {
 
     return (
         <div>
-        <Row className="justify-content-center">
-        <Col className="col-12 col-sm-5 col-md-3 col-lg-2 col-xl-2">
+        <Row className="justify-content-center text-center">
+        <Col className="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-3">
             {flag && 
             <Alert variant="warning">{value}</Alert>
             }
             <div className = "display-4">Login</div>
-            <div className = "card my-2">
+            <div className = "card my-4">
                 <div className = "card-body">
-                    <Row className="container justify-content-center">
-                        <Col className="col-3 mb-4">
+                    <Row className="login-icon justify-content-center">
+                        <Col className="col-3 mb-2">
                             {element}
                         </Col>
                     </Row>
+                <Col>
                 <Form onSubmit = {handleSubmit}>
                 <Form.Group className="mb-2">
                     <Form.Control 
@@ -61,8 +62,7 @@ const Login = ({ loginUser }) => {
                         onChange = {handleChange}
                         />
                 </Form.Group>
-
-                <Form.Group className="mb-5">
+                <Form.Group className="mb-2">
                     <Form.Control 
                         type="password"
                         name = "password"
@@ -71,16 +71,18 @@ const Login = ({ loginUser }) => {
                         onChange = {handleChange}
                     />
                 </Form.Group>
-                <Button variant="primary" type="submit" className = "position-absolute bottom-0 end-0 m-1">
-                    Submit
-                </Button>
                 </Form>
+                </Col>
+                <Col>
+                    <Button variant="primary" type="submit" >
+                        Submit
+                    </Button>
+                </Col>
                 </div>
                 </div>
                 </Col>
         </Row>
         </div>
-
     )
 }
 

@@ -1,14 +1,11 @@
 .carousel-image > a{
     width: 100% !important;
+    height: 70% !important;
 }
 
 .home-carousel {
     width: 100%;
-    overflow:hidden;
     padding: 0px;
-}
-.home-carousel .carousel-inner {
-    height:100%;    
 }
 
 .home-carousel-inner img {
@@ -21,16 +18,17 @@ body{
     padding: 0px !important;
 }
 
-.home-img{
-    height: 100%;
-    width: 100%;
-}
-
 .carousel-slogan {
     position: absolute;
-    top: 10%;
-    left: 0%;
+    top: 50%;
+    left: 25%;
     z-index: 20;
     color: white;
     text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}
+
+.carousel .item{
+    height:500px;
+    background-size:cover;
+    background-position: center center;
 }
