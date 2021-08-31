@@ -66,7 +66,7 @@ function NavBar({ logout }) {
       <a className="mx-3 navbar-brand text-secondary" href="/">
         {element}
       </a>
-      <span class="navbar-brand mb-0 h1">CAL</span>
+      <span className="navbar-brand mb-0 h1">CAL</span>
         {currentUser ? loggedInNav() : loggedOutNav()}
         {/* {loggedInNav()} */}
     </nav>

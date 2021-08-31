@@ -17,11 +17,11 @@ const Login = ({ loginUser }) => {
     });
 
     async function handleSubmit(e) {
+        console.log(`submitted`)
         e.preventDefault()
         let user = await loginUser(loginFormData)
         if(user.success){
             history.push('/')
-            window.location.reload()
         } else {
             setFlag(true)
             setValue(user.errors[0])
@@ -39,7 +39,7 @@ const Login = ({ loginUser }) => {
     return (
         <div>
         <Row className="justify-content-center text-center">
-        <Col className="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-3">
+        <Col className="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2">
             {flag && 
             <Alert variant="warning">{value}</Alert>
             }
@@ -53,30 +53,39 @@ const Login = ({ loginUser }) => {
                     </Row>
                 <Col>
                 <Form onSubmit = {handleSubmit}>
-                <Form.Group className="mb-2">
-                    <Form.Control 
-                        type="text" 
-                        name = "username"
-                        placeholder="Username"
-                        value = {loginFormData.username}
-                        onChange = {handleChange}
+                    <Form.Group className="mb-2">
+                        <Form.Control 
+                            type="text" 
+                            name = "username"
+                            placeholder="Username"
+                            value = {loginFormData.username}
+                            onChange = {handleChange}
+                            />
+                    </Form.Group>
+                    <Form.Group className="mb-2">
+                        <Form.Control 
+                            type="password"
+                            name = "password"
+                            placeholder="Password"
+                            value = {loginFormData.password}
+                            onChange = {handleChange}
                         />
-                </Form.Group>
-                <Form.Group className="mb-2">
-                    <Form.Control 
-                        type="password"
-                        name = "password"
-                        placeholder="Password"
-                        value = {loginFormData.password}
-                        onChange = {handleChange}
+                    </Form.Group>
+
+                    <Form.Group className="mb-2">
+                        <Form.Control 
+                            type="submit"
+                            value = "Submit"
+                            className="btn btn-primary mt-3"
+                        />
+                    </Form.Group>
+                    {/* <input
+                            type="submit"
+                            value="Submit"
+                            className="btn btn-primary mt-3"
                     />
-                </Form.Group>
+                    </Form.Group> */}
                 </Form>
-                </Col>
-                <Col>
-                    <Button variant="primary" type="submit" >
-                        Submit
-                    </Button>
                 </Col>
                 </div>
                 </div>
