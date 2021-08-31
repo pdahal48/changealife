@@ -26,15 +26,17 @@ const Home = () => {
 }, [])
 
   return (
-    <div className="home-body">
+    <div className="container-fluid home-body">
       {people.length ?
       <div>
-      <Row>
+      <Row >
         <Col>
           <div className="home-img">
-            <div className="carousel-slogan">
-            <div className="text-center display-3">
-                DONATE TODAY. <br></br>
+            <div className="col-12 display-3 carousel-slogan">
+              <div>
+                DONATE TODAY.
+              </div>
+              <div>
                 BUILD YOUR COMMUNITY!
               </div>
             </div>
