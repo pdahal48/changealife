@@ -1,12 +1,13 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap';
+import './AboutUs.css'
 
 
 const AboutUs = () => {
     return (
-        <div className="container ml-5 mr-5 pl-5 pr-5">
+            <div className="container-fluid about-body ml-5 mr-5 pl-5 pr-5">
             <Row className="justify-content-center">
-                <Col className="col-8 text-center mt-3" style={{border:"2px solid grey"}}>
+                <Col className="about-body col-8 text-center mt-3 mb-5" style={{border:"2px solid grey"}}>
                 <br></br> <b>At this time, the site is still under development and is only a model.</b><br></br>
 
                     Hello! My name is Prem Dahal. I am an upcoming fullstack software engineer.
@@ -25,12 +26,13 @@ const AboutUs = () => {
                             </a>
                          with your shelter information
                     </div>
-                    <div className="text-center mt-2">
+                    <div className="about-body text-center mt-2">
                         If you are facing homeless and would like to add yourself to the site, please sign up! 
                     </div>
                 </Col>
             </Row>
-        </div>
+            </div>
+        
     )
 }
 

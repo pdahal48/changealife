@@ -26,7 +26,7 @@ const Home = () => {
 }, [])
 
   return (
-    <div>
+    <div className="home-body">
       {people.length ?
       <div>
       <Row>

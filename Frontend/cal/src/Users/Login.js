@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Form, Button, Alert, Row, Col } from 'react-bootstrap'
+import { Form, Alert, Row, Col } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import './Login.css'
 
 const element = <FontAwesomeIcon icon={faUser} size="6x"/>
 
@@ -37,17 +38,17 @@ const Login = ({ loginUser }) => {
     }
 
     return (
-        <div>
+        <div className="login-body">
         <Row className="justify-content-center text-center">
         <Col className="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2">
             {flag && 
             <Alert variant="warning">{value}</Alert>
             }
             <div className = "display-4">Login</div>
-            <div className = "card my-4">
+            <div className = "card my-5">
                 <div className = "card-body">
                     <Row className="login-icon justify-content-center">
-                        <Col className="col-3 mb-2">
+                        <Col className="col-3 mb-">
                             {element}
                         </Col>
                     </Row>

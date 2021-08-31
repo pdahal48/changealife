@@ -1,4 +1,4 @@
-.carousel-image > a{
+.carousel-image > a {
     width: 100% !important;
     height: 70% !important;
 }
@@ -11,11 +11,6 @@
 .home-carousel-inner img {
     display:block;
     object-fit: cover;
-}
-
-body{
-    margin:0 !important;
-    padding: 0px !important;
 }
 
 .carousel-slogan {
@@ -31,4 +26,8 @@ body{
     height:500px;
     background-size:cover;
     background-position: center center;
+}
+
+.home-body{
+    background-color: white;
 }

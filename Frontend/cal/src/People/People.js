@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import {CalAPI as API} from '../Api'
 import PersonCard from './PersonCard';
 import SearchForm from '../SearchForm';
+import { Row, Col } from 'react-bootstrap';
+import './People.css'
 
 //Controls State for the People list. 
 //Each item in the list is sent to PersonCard for render for /users page
@@ -24,8 +26,11 @@ const People = () => {
     }
 
     return (
+        <div className="people-body">
         <div className="container">
-        <SearchForm searchFor ={search} />
+            <Row>
+                <Col className="mb-5">
+                <SearchForm searchFor ={search} />
           {people.length
               ? (
                   <div>
@@ -43,7 +48,12 @@ const People = () => {
               ) : (
                   <p className="lead">Sorry, no results were found!</p>
               )}
+                </Col>
+            </Row>
+        
         </div>
+        </div>
+        
     );
 }
 

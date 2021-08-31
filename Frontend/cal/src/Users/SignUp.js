@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Form, Button, Row, Col, Alert } from 'react-bootstrap'
 import { useHistory } from 'react-router'
 import {CalAPI as API} from '../Api'
+import './SignUp.css'
 
 const SignUp = ({ signup }) => {
 
@@ -76,11 +77,14 @@ const SignUp = ({ signup }) => {
     }
 
     return (
+        <div className = "signup-body">
         <div className="container col-md-6 col-lg-5 offset-md-3 offset-lg-3">
         { flag && 
             <Alert variant="warning">{value}</Alert>
         }
-          <h3>Sign Up</h3>
+        <Row>
+            <Col className="mb-5">
+            <h3>Sign Up</h3>
           <div className="card">
             <div className="card-body">
               <form>
@@ -258,7 +262,11 @@ const SignUp = ({ signup }) => {
                     </Button>
               </form>
             </div>
-          </div>
+        </div>
+            </Col>
+        </Row>
+        </div>
+
         </div>
     );
 }
