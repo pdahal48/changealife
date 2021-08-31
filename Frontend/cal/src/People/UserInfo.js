@@ -34,7 +34,7 @@ const UserInfo = () => {
         const result = await API.add({user_username: username, wish: formData.wish})
         setWishList([...wishList, result.wish])
         setFormData({ wish: ""})
-        window.location.reload()
+        // window.location.reload()
     }
 
     async function handleRemove(id) {
@@ -59,7 +59,7 @@ const UserInfo = () => {
             setImage(result.image)
         }
         getUserInfo()
-    }, [username])
+    }, [username, wishList])
 
     return (
         <div>

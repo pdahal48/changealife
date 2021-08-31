@@ -65,7 +65,6 @@ function NavBar({ logout }) {
     <nav className="Navigation navbar navbar-expand-md pt-0 pb-0">
       <a className="mx-3 navbar-brand text-secondary" href="/">
         {element}
-        {/* <img src={logo}  width="50" height="37" className="logo d-inline-block align-top m-0" alt="brand logo" /> */}
       </a>
       <span class="navbar-brand mb-0 h1">CAL</span>
         {currentUser ? loggedInNav() : loggedOutNav()}
