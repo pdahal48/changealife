@@ -47,7 +47,7 @@ const Login = ({ loginUser }) => {
             <div className = "display-4">Login</div>
             <div className = "card my-5">
                 <div className = "card-body">
-                    <Row className="login-icon justify-content-center">
+                    <Row className="login-icon justify-content-center mb-3">
                         <Col className="col-3 mb-">
                             {element}
                         </Col>
@@ -80,12 +80,6 @@ const Login = ({ loginUser }) => {
                             className="btn btn-primary mt-3"
                         />
                     </Form.Group>
-                    {/* <input
-                            type="submit"
-                            value="Submit"
-                            className="btn btn-primary mt-3"
-                    />
-                    </Form.Group> */}
                 </Form>
                 </Col>
                 </div>
